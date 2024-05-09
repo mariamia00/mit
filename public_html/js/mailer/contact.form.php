@@ -4,28 +4,23 @@
 $name = $_POST['name'];
 $email = $_POST['email'];
 $mobile = $_POST['mobile'];
-$subject = $_POST['subject'];
 $message = $_POST['message'];
+//create intro of message as subject
+$excerptLength = 40;
+$excerpt = substr($message, 0, $excerptLength);
+$subject = $excerpt . "...";
 
 // HTML email body
 $htmlBody = "<p>Name: $name</p>";
 $htmlBody .= "<p>Email: $email</p>";
-($mobile !== "noMobile") ? $htmlBody .= "<p>Mobile: $mobile</p>" : "";
-$htmlBody .= "<p>Subject: $subject</p>";
-$htmlBody .= "<p>Message: $message</p>";
-
-// Plain text email body
-$plainTextBody = "Name: $name\n";
-$plainTextBody .= "Email: $email\n";
-($mobile !== "noMobile") ? $plainTextBody .= "Mobile: $mobile\n" : "";
-$plainTextBody .= "Subject: $subject\n";
-$plainTextBody .= $message;
+($mobile !== "noMobile") ? $htmlBody .= "<p>Telefon: $mobile</p>" : "";
+$htmlBody .= "<p>Mesaj: $message</p>";
 
 // Recipient name. Change this name to your
-$recipientName = "Dabu Bogdan";
+$recipientName = "MIT FORMS";
 
 // Recipient email. Change this email to your
-$recipientEmail = "dabubogdan7@gmail.com";
+$recipientEmail = "maria_mia00@yahoo.com";
 
 // Initiate PHPMailer
 use PHPMailer\PHPMailer\PHPMailer;
@@ -45,11 +40,12 @@ $useSMTP = true;
 if ($useSMTP) {
     // Server settings for SMTP
     $mail->isSMTP();
-    $mail->Host = 'dabubogdan7@gmail.com';
+    $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'dabubogdan7@gmail.com';
-    $mail->Password = 'beautifullovee11';
     $mail->SMTPSecure = 'tls';
+    $mail->Username = 'logiscool.sender@gmail.com';
+    $mail->Password = 'znopmieylbnymkwd';
+  
     $mail->Port = 587;
 } else {
     // Server settings for PHP's mail()
@@ -60,14 +56,10 @@ if ($useSMTP) {
 $mail->setFrom($email, $name);
 $mail->addAddress($recipientEmail, $recipientName);
 $mail->addReplyTo($email, $name);
-// $mail->addCC('cc@example.com');
-// $mail->addBCC('bcc@example.com');
-
 // Mail content
 $mail->isHTML(true);
 $mail->Subject = $subject;
 $mail->Body = $htmlBody;
-$mail->AltBody = $plainTextBody;
 
 try {
     // Mail send
@@ -79,5 +71,6 @@ try {
     // Passing error message with "error" status
     echo json_encode(array('status' => 'error', 'message' => 'Email could not be sent. ' . $mail->ErrorInfo));
 }
+
 
 ?>

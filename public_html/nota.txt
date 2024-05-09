@@ -5,6 +5,8 @@ corectari si modificari facute:
 -  am schimbat textul de la testimoniale, dar trebuie personalizat
 - am corectat gramatica
 - am conectat niste linkuri intre paginile de pe website
+- am tradus pagina 404
+- functionalitate la formular (fara validare)
 
 
 de modificat in continuare:
@@ -13,5 +15,5 @@ de modificat in continuare:
 - pe pagina ”Despre„ este un buton "Citeste mai mult" si nu duce nicaieri
 - pastram galeria din footer?
 - pastram newsletter din footer?
-- functionalitate la formular
+- VALIDARE FORMULAR
 - cele 4 carduri trebuie personalizate. le afisam doar pe o pagina sau pe mai multe?
