@@ -1,5 +1,6 @@
 <?php
 
+
 // Mailer form data
 $name = $_POST['name'];
 $email = $_POST['email'];
@@ -9,6 +10,22 @@ $message = $_POST['message'];
 $excerptLength = 40;
 $excerpt = substr($message, 0, $excerptLength);
 $subject = $excerpt . "...";
+
+if (empty($name) || empty($email) || empty($message) || empty($mobile)) {
+    echo json_encode(array('status' => 'error', 'message' => 'Va rugam sa completati toate campurile.'));
+    exit;
+}
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo json_encode(array('status' => 'error', 'message' => 'Adresa de email nu este valida.'));
+    exit;
+}
+
+// Validate mobile format (adjust regex as per your requirement)
+if (!preg_match('/^[0-9]{10}$/', $mobile)) {
+    echo json_encode(array('status' => 'error', 'message' => 'Numarul de telefon nu este valid.'));
+    exit;
+}
+
 
 // HTML email body
 $htmlBody = "<p>Name: $name</p>";
@@ -66,10 +83,10 @@ try {
     $mail->send();
     
     // Passing success message with "success" status
-    echo json_encode(array('status' => 'success', 'message' => 'Email has been sent successfully!'));
+    echo json_encode(array('status' => 'success', 'message' => 'Multumim pentru email!'));
 } catch (Exception $e) {
     // Passing error message with "error" status
-    echo json_encode(array('status' => 'error', 'message' => 'Email could not be sent. ' . $mail->ErrorInfo));
+    echo json_encode(array('status' => 'error', 'message' => 'Emailul nu a putut fi trimis. Incercati mai tarziu ' . $mail->ErrorInfo));
 }
 
 
