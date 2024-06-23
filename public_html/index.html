@@ -124,16 +124,14 @@
                 și fă primul pas către succesul în tehnologie alăturându-te
                 cursului nostru de programare!
               </p>
-              <a
-                href="about.html"
-                class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft"
-                >Citeste mai mult</a
+
+              <button
+                class="btn btn-primary py-md-3 px-md-5 animated slideInRight"
+                data-bs-toggle="modal"
+                data-bs-target="#contactModal"
               >
-              <a
-                href="contact.html"
-                class="btn btn-light py-md-3 px-md-5 animated slideInRight"
-                >Aplica Acum</a
-              >
+                Vreau o lecție demo!
+              </button>
             </div>
           </div>
         </div>
@@ -735,20 +733,89 @@
               &copy; <a class="border-bottom" href="#">Informatic M IT</a>,
               Toate Drepturile Rezervate
             </div>
-            <div class="col-md-6 text-center text-md-end">
-              <div class="footer-menu">
-                <a href="">Acasa</a>
-                <a href="">Cookies</a>
-                <a href="">Ajutor</a>
-                <a href="">FAQs</a>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Footer End -->
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="contactModal"
+      tabindex="-1"
+      aria-labelledby="contactModalLabel"
+      aria-hidden="true"
+      id="contactModal"
+      tabindex="-1"
+      aria-labelledby="contactModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content p-4">
+          <div class="modal-header">
+            <h5 class="modal-title" id="contactModalLabel">
+              Completeaza formularul
+            </h5>
+            <button
+              type="button"
+              class="btn btn-primary btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <small class="m-2">
+            Trimite-ne datele tale pentru a debloca lectia demo. In plus, iti
+            vom trimite structura cursului complet pe email.
+          </small>
+          <div class="modal-body">
+            <form id="popupContactForm" novalidate="novalidate" class="row g-3">
+              <div class="col-12">
+                <label for="name" class="form-label">Nume:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  name="name"
+                  required
+                />
+              </div>
+              <div class="col-12">
+                <label for="email" class="form-label">Email:</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  required
+                />
+              </div>
+              <div class="col-12">
+                <label for="mobile" class="form-label">Nr telefon:</label>
+                <input
+                  type="tel"
+                  class="form-control"
+                  id="mobile"
+                  name="mobile"
+                  required
+                />
+              </div>
+              <div class="col-12">
+                <button
+                  type="submit"
+                  class="btn btn-primary w-100"
+                  id="sendPopupMessageButton"
+                >
+                  Arata-mi lectia demo
+                </button>
+              </div>
+              <div id="popupAlertMessage" class="mt-3"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"
@@ -762,7 +829,9 @@
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
+    <!-- Contact Form Javascript -->
+    <script src="./js/mailer/validation.form.js"></script>
+    <script src="./js/mailer/contact.form.js"></script>
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
   </body>
