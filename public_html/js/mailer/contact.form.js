@@ -98,7 +98,7 @@
 
       // Disable submit button during AJAX request
       $("#sendPopupMessageButton").prop("disabled", true);
-      $("#sendPopupMessageButton span").text("Se trimite...");
+      $("#sendPopupMessageButton").text("Se trimite...");
       $("#sendPopupMessageButton div").removeClass("d-none");
 
       // Perform AJAX submission for #popupContactForm
@@ -115,6 +115,7 @@
         cache: false,
         success: function (response) {
           if (response.status === "success") {
+            window.location.href = "./video.html";
             $("#popupAlertMessage").html(
               "<div class='alert alert-success alert-dismissible'>" +
                 "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-hidden='true'></button>" +

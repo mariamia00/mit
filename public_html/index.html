@@ -36,7 +36,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
 
   <body>
@@ -77,35 +77,28 @@
         <div class="navbar-nav ms-auto p-4 p-lg-0">
           <a href="index.html" class="nav-item nav-link active">Acasa</a>
           <a href="about.html" class="nav-item nav-link">Despre</a>
-          <a class="nav-item nav-link">Invata Singur (in curand)</a>
+
           <a href="courses.html" class="nav-item nav-link">Cursuri</a>
-          <div class="nav-item dropdown">
-            <a
-              href="#"
-              class="nav-link dropdown-toggle"
-              data-bs-toggle="dropdown"
-              >Pagini</a
-            >
-            <div class="dropdown-menu fade-down m-0">
-              <a href="team.html" class="dropdown-item">Echipa Noastra</a>
-              <a href="testimonial.html" class="dropdown-item">Testimoniale</a>
-            </div>
-          </div>
+          <a href="team.html" class="nav-item nav-link">Echipa Noastra</a>
+          <a href="testimonial.html" class="nav-item nav-link">Testimoniale</a>
+
           <a href="contact.html" class="nav-item nav-link">Contact</a>
         </div>
-        <a
-          href="contact.html"
-          class="btn btn-primary py-4 px-lg-5 d-none d-lg-block"
-          >Aplica Acum<i class="fa fa-arrow-right ms-3"></i
-        ></a>
       </div>
     </nav>
     <!-- Navbar End -->
 
     <!-- Carousel Start -->
-
-    <div class="owl-carousel-item position-relative">
-      <img class="img-fluid" src="img/carousel-2.jpg" alt="" />
+    <div
+      class="owl-carousel-item position-relative"
+      style="
+        background-image: url('img/carousel-2.jpg');
+        min-height: 100vh;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      "
+    >
       <div
         class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
         style="background: rgba(24, 29, 56, 0.7)"
@@ -116,7 +109,7 @@
               <h5 class="text-primary text-uppercase mb-3 animated slideInDown">
                 Cele mai bune cursuri de IT
               </h5>
-              <h1 class="display-3 text-white animated slideInDown">
+              <h1 class="display-4 text-white animated slideInDown">
                 Intra in lumea programarii cu Informatic M IT
               </h1>
               <p class="fs-5 text-white mb-4 pb-2">
@@ -124,7 +117,6 @@
                 și fă primul pas către succesul în tehnologie alăturându-te
                 cursului nostru de programare!
               </p>
-
               <button
                 class="btn btn-primary py-md-3 px-md-5 animated slideInRight"
                 data-bs-toggle="modal"
@@ -141,7 +133,7 @@
     <!-- Carousel End -->
 
     <!-- Service Start -->
-    <div class="container-xxl py-5">
+    <div class="container-xxl py-4">
       <div class="container">
         <div class="row g-4">
           <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -198,7 +190,7 @@
     <!-- Service End -->
 
     <!-- About Start -->
-    <div class="container-xxl py-5">
+    <div class="container-xxl py-4">
       <div class="container">
         <div class="row g-5">
           <div
@@ -219,7 +211,7 @@
             <h6 class="section-title bg-white text-start text-primary pe-3">
               Despre Noi
             </h6>
-            <h1 class="mb-4">Bine ai venit in lumea digitala</h1>
+
             <p class="mb-4">
               Informatic M IT Academy este un curs de programare inovator și
               distinct, care îmbină cele mai eficiente metode de predare cu cele
@@ -235,126 +227,15 @@
               carieră de succes în IT. Alegeți Informatic M IT Academy pentru a
               vă dezvolta și a vă lansa în viitorul strălucit al tehnologiei!
             </p>
-            <div class="row gy-2 gx-4 mb-4">
-              <div class="col-sm-6">
-                <p class="mb-0">
-                  <i class="fa fa-arrow-right text-primary me-2"></i>Instructori
-                  Talentati
-                </p>
-              </div>
-              <div class="col-sm-6">
-                <p class="mb-0">
-                  <i class="fa fa-arrow-right text-primary me-2"></i>Clase
-                  Online
-                </p>
-              </div>
-              <div class="col-sm-6">
-                <p class="mb-0">
-                  <i class="fa fa-arrow-right text-primary me-2"></i>Distractie
-                  Maxima
-                </p>
-              </div>
-              <div class="col-sm-6">
-                <p class="mb-0">
-                  <i class="fa fa-arrow-right text-primary me-2"></i>Librarie
-                </p>
-              </div>
-              <div class="col-sm-6">
-                <p class="mb-0">
-                  <i class="fa fa-arrow-right text-primary me-2"></i>Proiecte
-                  pentru acasa
-                </p>
-              </div>
-              <div class="col-sm-6">
-                <p class="mb-0">
-                  <i class="fa fa-arrow-right text-primary me-2"></i>Certificare
-                </p>
-              </div>
-            </div>
+
             <a class="btn btn-primary py-3 px-5 mt-2" href="about.html"
-              >Citeste mai mult</a
+              >Află mai multe</a
             >
           </div>
         </div>
       </div>
     </div>
     <!-- About End -->
-
-    <!-- Categories Start -->
-    <div class="container-xxl py-5 category">
-      <div class="container">
-        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-          <h6 class="section-title bg-white text-center text-primary px-3">
-            Categorie
-          </h6>
-          <h1 class="mb-5">Cursuri Disponibile</h1>
-        </div>
-        <div class="row g-3">
-          <div class="col-lg-7 col-md-6">
-            <div class="row g-3">
-              <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
-                <a class="position-relative d-block overflow-hidden" href="">
-                  <img class="img-fluid" src="img/cat-1.jpg" alt="" />
-                  <div
-                    class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3"
-                    style="margin: 1px"
-                  >
-                    <h5 class="m-0">C++ Developer</h5>
-                    <small class="text-primary">Inscrie-te Acum</small>
-                  </div>
-                </a>
-              </div>
-              <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
-                <a class="position-relative d-block overflow-hidden" href="">
-                  <img class="img-fluid" src="img/cat-2.jpg" alt="" />
-                  <div
-                    class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3"
-                    style="margin: 1px"
-                  >
-                    <h5 class="m-0">Javascript Developer</h5>
-                    <small class="text-primary">Inscrie-te Acum</small>
-                  </div>
-                </a>
-              </div>
-              <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
-                <a class="position-relative d-block overflow-hidden" href="">
-                  <img class="img-fluid" src="img/cat-3.jpg" alt="" />
-                  <div
-                    class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3"
-                    style="margin: 1px"
-                  >
-                    <h5 class="m-0">MySQL</h5>
-                    <small class="text-primary">Inscrie-te Acum</small>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div
-            class="col-lg-5 col-md-6 wow zoomIn"
-            data-wow-delay="0.7s"
-            style="min-height: 350px"
-          >
-            <a class="position-relative d-block h-100 overflow-hidden" href="">
-              <img
-                class="img-fluid position-absolute w-100 h-100"
-                src="img/cat-4.jpg"
-                alt=""
-                style="object-fit: cover"
-              />
-              <div
-                class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3"
-                style="margin: 1px"
-              >
-                <h5 class="m-0">Angular Developer</h5>
-                <small class="text-primary">Inscrie-te Acum</small>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Categories Start -->
 
     <!-- Courses Start -->
     <div class="container-xxl py-5">
@@ -388,15 +269,15 @@
                 </div>
               </div>
               <div class="text-center p-4 pb-0">
-                <h3 class="mb-0">5.800 de Lei</h3>
-                <div class="mb-3">
+                <h3 class="mb-0">de Lei</h3>
+                <!-- <div class="mb-3">
                   <small class="fa fa-star text-primary"></small>
                   <small class="fa fa-star text-primary"></small>
                   <small class="fa fa-star text-primary"></small>
                   <small class="fa fa-star text-primary"></small>
                   <small class="fa fa-star text-primary"></small>
                   <small>(123)</small>
-                </div>
+                </div> -->
                 <h5 class="mb-4">C++ Developer</h5>
               </div>
               <div class="d-flex border-top">
@@ -437,14 +318,7 @@
               </div>
               <div class="text-center p-4 pb-0">
                 <h3 class="mb-0">4.500 de Lei</h3>
-                <div class="mb-3">
-                  <small class="fa fa-star text-primary"></small>
-                  <small class="fa fa-star text-primary"></small>
-                  <small class="fa fa-star text-primary"></small>
-                  <small class="fa fa-star text-primary"></small>
-                  <small class="fa fa-star text-primary"></small>
-                  <small>(123)</small>
-                </div>
+
                 <h5 class="mb-4">Python Developer</h5>
               </div>
               <div class="d-flex border-top">
@@ -484,29 +358,48 @@
                 </div>
               </div>
               <div class="text-center p-4 pb-0">
-                <h3 class="mb-0">5.000 de Lei</h3>
-                <div class="mb-3">
-                  <small class="fa fa-star text-primary"></small>
-                  <small class="fa fa-star text-primary"></small>
-                  <small class="fa fa-star text-primary"></small>
-                  <small class="fa fa-star text-primary"></small>
-                  <small class="fa fa-star text-primary"></small>
-                  <small>(123)</small>
-                </div>
+                <h3 class="mb-0">1800 de Lei</h3>
+
                 <h5 class="mb-4">Web Developer Career</h5>
               </div>
               <div class="d-flex border-top">
-                <small class="flex-fill text-center border-end py-2"
-                  ><i class="fa fa-user-tie text-primary me-2"></i>Maria
-                  Popa</small
-                >
-                <small class="flex-fill text-center border-end py-2"
-                  ><i class="fa fa-clock text-primary me-2"></i>40</small
-                >
-                <small class="flex-fill text-center py-2"
-                  ><i class="fa fa-user text-primary me-2"></i>15
-                  Studenti</small
-                >
+                <small class="nav-item dropdown">
+                  <a
+                    href="team.html"
+                    class="nav-link dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    ><i class="fa fa-user-tie text-primary me-2"></i> Mogosanu
+                    Cosmin</a
+                  >
+                  <div class="dropdown-menu fade-down m-0">
+                    <small
+                      ><a href="team.html" class="dropdown-item"
+                        ><i class="fa fa-user-tie text-primary me-2"></i>
+                        Caragea Andrei</a
+                      ></small
+                    >
+                    <small>
+                      <a href="team.html" class="dropdown-item"
+                        ><i class="fa fa-user-tie text-primary me-2"></i> Pasare
+                        Bianca</a
+                      ></small
+                    >
+                    <small>
+                      <a href="team.html" class="dropdown-item"
+                        ><i class="fa fa-user-tie text-primary me-2"></i> Popa
+                        Maria</a
+                      ></small
+                    >
+                  </div>
+                </small>
+
+                <!-- Other course details sections -->
+                <small class="flex-fill text-center border-end py-2">
+                  <i class="fa fa-clock text-primary me-2"></i>72
+                </small>
+                <small class="flex-fill text-center py-2">
+                  <i class="fa fa-user text-primary me-2"></i>15 Studenti
+                </small>
               </div>
             </div>
           </div>
@@ -536,13 +429,10 @@
             <div class="testimonial-text bg-light text-center p-4">
               <p class="mb-0">
                 Cursul vostru de programare a fost o adevărată oportunitate! Am
-                învățat nu doar abilități esențiale de programare, ci și tehnici
-                și practici relevante pentru industrie. Aprecierea mea este cu
-                atât mai mare deoarece, la finalul cursului, am reușit să obțin
-                un loc de muncă în domeniul programării. Vă mulțumesc pentru
-                eforturile depuse și pentru sprijinul oferit în dezvoltarea
-                carierei mele. Recomand cu încredere acest curs tuturor celor
-                care doresc să-și găsească un loc de muncă în industria IT.
+                învățat abilități esențiale de programare și tehnici relevante
+                pentru industrie. La finalul cursului, am reușit să obțin un loc
+                de muncă în domeniul programării. Vă mulțumesc pentru eforturile
+                depuse și sprijinul oferit.
               </p>
             </div>
           </div>
@@ -556,15 +446,12 @@
             <p>Web Developer</p>
             <div class="testimonial-text bg-light text-center p-4">
               <p class="mb-0">
-                Cursul de programare oferit de Informatic M IT a fost cu
-                adevărat impresionant! Nu doar că am dobândit cunoștințe solide
-                în domeniul programării, dar am avut și oportunitatea unică de a
-                mă angaja direct în companie. Instructorul a fost excepțional,
-                ghidându-ne în mod profesionist și oferindu-ne suportul necesar
-                pe tot parcursul cursului. Sunt recunoscător pentru această
-                experiență și recomand cu încredere acest curs tuturor celor
-                care doresc să învețe programare și să se integreze rapid în
-                industrie.
+                Cursul de programare oferit de Informatic M IT a fost
+                impresionant! Am dobândit cunoștințe solide și m-am angajat
+                direct în companie. Instructorul a fost excepțional, oferindu-ne
+                suportul necesar pe tot parcursul cursului. Materialele de
+                studiu au fost foarte bine structurate, facilitând procesul de
+                învățare.
               </p>
             </div>
           </div>
@@ -578,16 +465,11 @@
             <p>Web Developer</p>
             <div class="testimonial-text bg-light text-center p-4">
               <p class="mb-0">
-                Cursul de programare de la Informatic M IT a reprezentat un
-                moment de cotitură în drumul meu profesional! Am fost plăcut
-                surprinsă să descopăr că, la finalizarea acestuia, am avut
+                Cursul de programare de la Informatic M IT a fost un moment de
+                cotitură în cariera mea! La finalizarea acestuia, am avut
                 oportunitatea de a deveni instructor în echipa voastră.
-                Materialele și instruirea au fost excepționale, facilitându-mi
+                Materialele și instruirea au fost excepționale, facilitând
                 înțelegerea conceptelor și dezvoltarea abilităților practice.
-                Apreciez susținerea constantă din partea profesorilor și a
-                colegilor mei de curs. Cu încredere, îl recomand tuturor celor
-                pasionați de programare și dornici să se integreze într-o
-                companie de top precum Informatic M IT.
               </p>
             </div>
           </div>
@@ -601,15 +483,12 @@
             <p>Trainer</p>
             <div class="testimonial-text bg-light text-center p-4">
               <p class="mb-0">
-                Experiența mea cu Informatic M IT a fost cu adevărat
-                remarcabilă! Am avut parte de o pregătire intensivă și completă,
-                care m-a pus pe drumul cel bun pentru piața muncii. Sunt
-                încântată să vă spun că, imediat după finalizarea cursului, am
-                fost recrutată în echipa companiei. Echipa voastră a fost atentă
-                la nevoile noastre și a creat un mediu de învățare captivant și
-                interactiv. Îl recomand cu căldură acestui curs tuturor celor
-                pasionați de programare și dornici să-și construiască o carieră
-                de succes în acest domeniu.
+                Experiența mea cu Informatic M IT a fost remarcabilă! Am
+                beneficiat de o pregătire intensivă care m-a pregătit pentru
+                piața muncii. Imediat după finalizarea cursului, am fost
+                recrutată în echipa companiei. Echipa voastră a fost atentă la
+                nevoile noastre și a creat un mediu de învățare captivant și
+                interactiv.
               </p>
             </div>
           </div>
@@ -660,54 +539,8 @@
               ></a>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6">
-            <h4 class="text-white mb-3">Galerie</h4>
-            <div class="row g-2 pt-2">
-              <div class="col-4">
-                <img
-                  class="img-fluid bg-light p-1"
-                  src="img/course-1.jpg"
-                  alt=""
-                />
-              </div>
-              <div class="col-4">
-                <img
-                  class="img-fluid bg-light p-1"
-                  src="img/course-2.jpg"
-                  alt=""
-                />
-              </div>
-              <div class="col-4">
-                <img
-                  class="img-fluid bg-light p-1"
-                  src="img/course-3.jpg"
-                  alt=""
-                />
-              </div>
-              <div class="col-4">
-                <img
-                  class="img-fluid bg-light p-1"
-                  src="img/course-2.jpg"
-                  alt=""
-                />
-              </div>
-              <div class="col-4">
-                <img
-                  class="img-fluid bg-light p-1"
-                  src="img/course-3.jpg"
-                  alt=""
-                />
-              </div>
-              <div class="col-4">
-                <img
-                  class="img-fluid bg-light p-1"
-                  src="img/course-1.jpg"
-                  alt=""
-                />
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
+
+          <div class="col-lg-4 col-md-4">
             <h4 class="text-white mb-3">Newsletter</h4>
             <p>Aboneaza-te la Newsletter</p>
             <div class="position-relative mx-auto" style="max-width: 400px">
