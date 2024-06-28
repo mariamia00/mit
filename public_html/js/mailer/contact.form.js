@@ -32,7 +32,6 @@
           name: name,
           email: email,
           mobile: mobile,
-
           message: message,
         },
         dataType: "json",
@@ -57,6 +56,7 @@
                 "</strong>" +
                 "</div>"
             );
+            $("#sendMessageButton span").text("Arata-mi lectia demo");
           }
         },
         error: function (xhr, textStatus, errorThrown) {
@@ -72,14 +72,14 @@
         complete: function () {
           // Re-enable submit button after AJAX completes
           $("#sendMessageButton").prop("disabled", false);
-          $("#sendMessageButton span").text("Trimite mesaj");
+          $("#sendMessageButton span").text("Arata-mi lectia demo");
           $("#sendMessageButton div").addClass("d-none");
         },
       });
     },
   });
 
-  // Initialize form validation for #popupContactForm
+  // -------------- Initialize form validation for #popupContactForm
   $(
     "#popupContactForm input, #popupContactForm textarea"
   ).jqBootstrapValidation({
@@ -93,7 +93,10 @@
       // Fetch form data for #popupContactForm
       var name = $("input#name").val();
       var email = $("input#email").val();
-      var mobile = $("input#mobile").val();
+      var mobile = $("input#mobile").length
+        ? $("input#mobile").val()
+        : "noMobile";
+
       var message = $("textarea#message").val();
 
       // Disable submit button during AJAX request
@@ -150,7 +153,7 @@
         complete: function () {
           // Re-enable submit button after AJAX completes
           $("#sendPopupMessageButton").prop("disabled", false);
-          $("#sendPopupMessageButton span").text("Trimite mesaj");
+          $("#sendPopupMessageButton span").text("Arata-mi lectia demo");
           $("#sendPopupMessageButton div").addClass("d-none");
         },
       });
