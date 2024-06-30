@@ -1,7 +1,7 @@
 (function ($) {
   "use strict";
 
-  $("#contactForm input, #contactForm textarea").jqBootstrapValidation({
+  $("#popupContactForm input").jqBootstrapValidation({
     preventSubmit: true,
     submitError: function ($form, event, errors) {
       // Additional error handling if needed
@@ -11,14 +11,10 @@
 
       var name = $("input#name").val();
       var email = $("input#email").val();
-      var mobile = $("input#mobile").length
-        ? $("input#mobile").val()
-        : "noMobile";
-      var message = $("textarea#message").val();
 
-      $("#sendMessageButton").prop("disabled", true);
-      $("#sendMessageButton span").text("Se trimite...");
-      $("#sendMessageButton div").removeClass("d-none");
+      $("#sendPopupMessageButton").prop("disabled", true);
+      $("#sendPopupMessageButton").text("Se trimite...");
+      $("#sendPopupMessageButton div").removeClass("d-none");
 
       $.ajax({
         url: "./js/mailer/contact.form.php",
@@ -26,14 +22,13 @@
         data: {
           name: name,
           email: email,
-          mobile: mobile,
-          message: message,
         },
         dataType: "json",
         cache: false,
         success: function (response) {
           if (response.status === "success") {
-            $("#alertMessage").html(
+            window.location.href = "./video.html";
+            $("#popupAlertMessage").html(
               "<div class='alert alert-success alert-dismissible'>" +
                 "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-hidden='true'></button>" +
                 "<strong>" +
@@ -41,9 +36,9 @@
                 "</strong>" +
                 "</div>"
             );
-            $("#contactForm").trigger("reset");
+            $("#popupContactForm").trigger("reset");
           } else {
-            $("#alertMessage").html(
+            $("#popupAlertMessage").html(
               "<div class='alert alert-danger alert-dismissible'>" +
                 "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-hidden='true'></button>" +
                 "<strong>" +
@@ -51,11 +46,10 @@
                 "</strong>" +
                 "</div>"
             );
-            $("#sendMessageButton span").text("Arata-mi lectia demo");
           }
         },
         error: function (xhr, textStatus, errorThrown) {
-          $("#alertMessage").html(
+          $("#popupAlertMessage").html(
             "<div class='alert alert-danger alert-dismissible'>" +
               "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-hidden='true'></button>" +
               "<strong>Ajax Error: " +
@@ -65,20 +59,20 @@
           );
         },
         complete: function () {
-          $("#sendMessageButton").prop("disabled", false);
-          $("#sendMessageButton span").text("Arata-mi lectia demo");
-          $("#sendMessageButton div").addClass("d-none");
+          $("#sendPopupMessageButton").prop("disabled", false);
+          $("#sendPopupMessageButton span").text("Arata-mi lectia demo");
+          $("#sendPopupMessageButton div").addClass("d-none");
         },
       });
     },
   });
 
-  $("#sendMessageButton").prop("disabled", true);
+  $("#sendPopupMessageButton").prop("disabled", true);
 
-  $("#contactForm").on("change keyup", function () {
+  $("#popupContactForm").on("change keyup", function () {
     var $form = $(this);
     var isValid = true;
-    $form.find("input, textarea").each(function () {
+    $form.find("input").each(function () {
       if (!$(this).val().trim()) {
         isValid = false;
         return false;
@@ -87,7 +81,7 @@
     $form.find("button[type='submit']").prop("disabled", !isValid);
   });
 
-  $("#name, #email, #message").focus(function () {
-    $("#alertMessage").html("");
+  $("#popupContactForm input").focus(function () {
+    $("#popupAlertMessage").html("");
   });
 })(jQuery);

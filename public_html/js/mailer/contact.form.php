@@ -40,7 +40,7 @@ if ($mobile !== 'noMobile') {
     $htmlBody .= "<p>Telefon: $mobile</p>";
 }
 if (!empty($message)) {
-    $htmlBody .= "<p>Mesaj: $message</p>";
+    $htmlBody .= "<p>Mesaj: </br> $message</p>";
 }
 
 $recipientName = "MIT FORMS";
