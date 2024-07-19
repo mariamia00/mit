@@ -1,14 +1,13 @@
 <?php
-
 // Mailer form data
-$name = $_POST['name'];
-$email = $_POST['email'];
-$mobile = isset($_POST['mobile']) ? $_POST['mobile'] : 'noMobile';
-$message = isset($_POST['message']) ? $_POST['message'] : '';
+$name = $_POST['name'] ?? '';
+$email = $_POST['email'] ?? '';
+$mobile = $_POST['phone'] ?? '';
+$message = $_POST['message'] ?? '';
 
 // Set subject based on message presence
 if (empty($message)) {
-    $subject = "I want a demo";
+    $subject = "Vreau sa vad lectia demo";
 } else {
     $excerptLength = 40;
     $excerpt = substr($message, 0, $excerptLength);
@@ -16,7 +15,7 @@ if (empty($message)) {
 }
 
 // Validate required fields for both forms
-if (empty($name) || empty($email)) {
+if (empty($name) || empty($email) || empty($mobile)) {
     echo json_encode(array('status' => 'error', 'message' => 'Va rugam sa completati toate campurile.'));
     exit;
 }
@@ -28,19 +27,18 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 // Validate mobile format only if provided
-if ($mobile !== 'noMobile' && !preg_match('/^[0-9]{10}$/', $mobile)) {
+if (!preg_match('/^[0-9]{10}$/', $mobile)) {
     echo json_encode(array('status' => 'error', 'message' => 'Numarul de telefon nu este valid.'));
     exit;
 }
 
 // HTML email body
-$htmlBody = "<p>Name: $name</p>";
-$htmlBody .= "<p>Email: $email</p>";
-if ($mobile !== 'noMobile') {
-    $htmlBody .= "<p>Telefon: $mobile</p>";
-}
+$htmlBody = "<p><b>Name:</b> $name</p>";
+$htmlBody .= "<p><b>Email:</b> $email</p>";
+$htmlBody .= "<p><b>Telefon:</b> $mobile</p>";
+
 if (!empty($message)) {
-    $htmlBody .= "<p>Mesaj: </br> $message</p>";
+    $htmlBody .= "<p><b>Mesaj:</b></p> </br>  <p style='background-color: whitesmoke; padding: 10px; line-height: 1.8;'>$message</p>";
 }
 
 $recipientName = "MIT FORMS";
@@ -82,4 +80,5 @@ try {
 } catch (Exception $e) {
     echo json_encode(array('status' => 'error', 'message' => 'Emailul nu a putut fi trimis. Incercati mai tarziu ' . $mail->ErrorInfo));
 }
+
 ?>

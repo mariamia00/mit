@@ -128,12 +128,12 @@
                 />
               </div>
               <div class="col-12">
-                <label for="mobile" class="form-label">Nr telefon:</label>
+                <label for="phone" class="form-label">Nr telefon:</label>
                 <input
                   type="tel"
                   class="form-control"
-                  id="mobile"
-                  name="mobile"
+                  id="phone"
+                  name="phone"
                   required
                 />
               </div>
@@ -256,7 +256,9 @@
 
     <!-- Contact Form Javascript -->
     <script src="./js/mailer/validation.form.js"></script>
-    <script src="./js/mailer/contact.form.js"></script>
+    <script type="module" src="./js/mailer/firebase.connect.js"></script>
+    <script type="module" src="./js/mailer/contact.form.js"></script>
+
     <style type="text/css">
       #contactForm .help-block ul {
         margin: 0;

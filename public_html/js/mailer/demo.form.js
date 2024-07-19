@@ -1,34 +1,45 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
 import {
-  getDatabase,
+  db,
   ref,
   push,
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+  query,
+  orderByChild,
+  equalTo,
+  get,
+} from "./firebase.connect.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyAmb4kcC9K6Bie38HuJw2wMl-vAhtfoHEo",
-  authDomain: "informatic-mit.firebaseapp.com",
-  databaseURL: "https://informatic-mit-default-rtdb.firebaseio.com",
-  projectId: "informatic-mit",
-  storageBucket: "informatic-mit.appspot.com",
-  messagingSenderId: "632930275903",
-  appId: "1:632930275903:web:20c782b3747bd1d7f4de8a",
-  measurementId: "G-2N8TDR58Z1",
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-const db = getDatabase(app);
 (function ($) {
   "use strict";
+
   function isValidEmail(email) {
-    // Regular expression for basic email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   }
-  // Firebase initialization (already included above)
+
+  function isValidPhone(phone) {
+    const phoneRegex = /^[0-9]{10}$/;
+    return phoneRegex.test(phone);
+  }
+
+  const studentsRef = ref(db, "studenti");
+
+  function checkPhoneExists(phone) {
+    return new Promise((resolve, reject) => {
+      const phoneQuery = query(
+        studentsRef,
+        orderByChild("phone"),
+        equalTo(phone)
+      );
+      get(phoneQuery)
+        .then((snapshot) => {
+          resolve(snapshot.exists());
+        })
+        .catch((error) => {
+          console.error("Error checking phone existence: ", error);
+          reject(error);
+        });
+    });
+  }
 
   $("#popupContactForm input").jqBootstrapValidation({
     preventSubmit: true,
@@ -37,6 +48,8 @@ const db = getDatabase(app);
 
       var name = $("input#name").val().trim();
       var email = $("input#email").val().trim();
+      var phone = $("input#phone").val().trim();
+
       if (!isValidEmail(email)) {
         $("#popupAlertMessage").html(
           "<div class='alert alert-danger alert-dismissible'>" +
@@ -44,80 +57,87 @@ const db = getDatabase(app);
             "<strong>Te rugăm să introduci o adresă de email validă.</strong>" +
             "</div>"
         );
+        $("#sendPopupMessageButton span").text("Arata-mi lectia demo");
+        return;
+      }
+
+      if (!isValidPhone(phone)) {
+        $("#popupAlertMessage").html(
+          "<div class='alert alert-danger alert-dismissible'>" +
+            "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-hidden='true'></button>" +
+            "<strong>Te rugăm să introduci un nr de telefon valid.</strong>" +
+            "</div>"
+        );
+        $("#sendPopupMessageButton span").text("Arata-mi lectia demo");
         return;
       }
 
       $("#sendPopupMessageButton").prop("disabled", true);
       $("#sendPopupMessageButton").text("Se trimite...");
       $("#sendPopupMessageButton div").removeClass("d-none");
-      // Push new data to Firebase
-      try {
-        const newDataRef = push(ref(db, "abonati"), {
-          name: name,
-          email: email,
-        });
 
-        console.log("Data pushed with key: ", newDataRef.key);
-
-        // AJAX request to PHP for additional processing (if needed)
-        $.ajax({
-          url: "./js/mailer/contact.form.php",
-          type: "POST",
-          data: {
-            name: name,
-            email: email,
-          },
-          dataType: "json",
-          cache: false,
-          success: function (response) {
-            if (response.status === "success") {
-              window.location.href = "./video.html";
-              $("#popupAlertMessage").html(
-                "<div class='alert alert-success alert-dismissible'>" +
-                  "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-hidden='true'></button>" +
-                  "<strong>" +
-                  response.message +
-                  "</strong>" +
-                  "</div>"
-              );
-              $("#popupContactForm").trigger("reset");
-            } else {
-              $("#popupAlertMessage").html(
-                "<div class='alert alert-danger alert-dismissible'>" +
-                  "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-hidden='true'></button>" +
-                  "<strong>" +
-                  response.message +
-                  "</strong>" +
-                  "</div>"
-              );
-            }
-          },
-          error: function (xhr, textStatus, errorThrown) {
+      // Check if phone number exists and add data to Firebase if it doesn't
+      checkPhoneExists(phone)
+        .then((exists) => {
+          if (!exists) {
+            // Phone number does not exist, add data to Firebase
+            return push(studentsRef, {
+              name: name,
+              email: email,
+              phone: phone,
+            });
+          }
+        })
+        .then(() => {
+          // Always make the AJAX request regardless of Firebase check
+          return $.ajax({
+            url: "./js/mailer/contact.form.php",
+            type: "POST",
+            data: {
+              name: name,
+              email: email,
+              phone: phone,
+            },
+            dataType: "json",
+            cache: false,
+          });
+        })
+        .then((response) => {
+          if (response.status === "success") {
+            window.location.href = "./video.html";
             $("#popupAlertMessage").html(
-              "<div class='alert alert-danger alert-dismissible'>" +
+              "<div class='alert alert-success alert-dismissible'>" +
                 "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-hidden='true'></button>" +
-                "<strong>Ajax Error: " +
-                errorThrown +
+                "<strong>" +
+                response.message +
                 "</strong>" +
                 "</div>"
             );
-          },
-          complete: function () {
-            $("#sendPopupMessageButton").prop("disabled", false);
+            $("#popupContactForm").trigger("reset");
+          } else {
+            $("#popupAlertMessage").html(
+              "<div class='alert alert-danger alert-dismissible'>" +
+                "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-hidden='true'></button>" +
+                "<strong>" +
+                response.message +
+                "</strong>" +
+                "</div>"
+            );
             $("#sendPopupMessageButton span").text("Arata-mi lectia demo");
-            $("#sendPopupMessageButton div").addClass("d-none");
-          },
+          }
+        })
+        .catch((error) => {
+          $("#popupAlertMessage").html(
+            "<div class='alert alert-danger alert-dismissible'>" +
+              "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-hidden='true'></button>" +
+              "<strong>A apărut o eroare. Te rugăm să încerci din nou mai târziu.</strong>" +
+              "</div>"
+          );
+          $("#sendPopupMessageButton").prop("disabled", false);
+          $("#sendPopupMessageButton span").text("Arata-mi lectia demo");
+          $("#sendPopupMessageButton div").addClass("d-none");
+          console.error("Error in processing: ", error);
         });
-      } catch (e) {
-        console.error("Error adding data: ", e);
-        $("#sendPopupMessageButton span").text("Arata-mi lectia demo");
-        $("#popupAlertMessage").html(
-          "<div class='alert alert-danger alert-dismissible'>" +
-            "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-hidden='true'></button>" +
-            "<strong>A apărut o eroare. Te rugăm să încerci din nou mai târziu.</strong>" +
-            "</div>"
-        );
-      }
 
       // Clear the form
       $form.trigger("reset");
