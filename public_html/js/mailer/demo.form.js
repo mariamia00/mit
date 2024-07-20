@@ -127,15 +127,10 @@ import {
           }
         })
         .catch((error) => {
-          $("#popupAlertMessage").html(
-            "<div class='alert alert-danger alert-dismissible'>" +
-              "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-hidden='true'></button>" +
-              "<strong>A apărut o eroare. Te rugăm să încerci din nou mai târziu.</strong>" +
-              "</div>"
-          );
-          $("#sendPopupMessageButton").prop("disabled", false);
-          $("#sendPopupMessageButton span").text("Arata-mi lectia demo");
-          $("#sendPopupMessageButton div").addClass("d-none");
+          // Redirect to video.html even if PHP request fails
+          window.location.href = "./video.html";
+
+          // Log the error for debugging
           console.error("Error in processing: ", error);
         });
 

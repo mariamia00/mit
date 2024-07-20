@@ -61,7 +61,7 @@ import {
             "<strong>Te rugăm să introduci o adresă de email validă.</strong>" +
             "</div>"
         );
-        $("#sendMessageButton span").text("Arata-mi lectia demo");
+        $("#sendMessageButton span").text("Trimite");
         return;
       }
 
@@ -72,7 +72,7 @@ import {
             "<strong>Te rugăm să introduci un nr de telefon valid.</strong>" +
             "</div>"
         );
-        $("#sendMessageButton span").text("Arata-mi lectia demo");
+        $("#sendMessageButton span").text("Trimite mesaj");
         return;
       }
 
@@ -100,24 +100,25 @@ import {
               "</div>"
           );
           $("#sendMessageButton").prop("disabled", false);
-          $("#sendMessageButton span").text("Arata-mi lectia demo");
+          $("#sendMessageButton span").text("Trimite mesaj");
           $("#sendMessageButton div").addClass("d-none");
-        });
-
-      // Always make the AJAX request regardless of Firebase check
-      $.ajax({
-        url: "./js/mailer/contact.form.php",
-        type: "POST",
-        data: {
-          name: name,
-          email: email,
-          phone: phone, // Changed 'mobile' to 'phone'
-          message: message,
-        },
-        dataType: "json",
-        cache: false,
-      })
-        .done((response) => {
+          throw error; // Rethrow to prevent the AJAX call
+        })
+        .then(() => {
+          return $.ajax({
+            url: "./js/mailer/contact.form.php",
+            type: "POST",
+            data: {
+              name: name,
+              email: email,
+              phone: phone, // Changed 'mobile' to 'phone'
+              message: message,
+            },
+            dataType: "json",
+            cache: false,
+          });
+        })
+        .then((response) => {
           if (response.status === "success") {
             $("#alertMessage").html(
               "<div class='alert alert-success alert-dismissible'>" +
@@ -137,22 +138,29 @@ import {
                 "</strong>" +
                 "</div>"
             );
-            $("#sendMessageButton span").text("Arata-mi lectia demo");
+            $("#sendMessageButton span").text("Trimite mesaj");
           }
         })
-        .fail((xhr, textStatus, errorThrown) => {
+        .catch((error) => {
+          console.error("AJAX request failed: ", error);
+          let errorMessage =
+            "A apărut o eroare. Te rugăm să încerci din nou mai târziu.";
+          if (error.status === 0) {
+            errorMessage =
+              "Eroare de rețea. Verificați conexiunea și încercați din nou.";
+          }
           $("#alertMessage").html(
             "<div class='alert alert-danger alert-dismissible'>" +
               "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-hidden='true'></button>" +
-              "<strong>Ajax Error: " +
-              errorThrown +
+              "<strong>" +
+              errorMessage +
               "</strong>" +
               "</div>"
           );
         })
-        .always(() => {
+        .finally(() => {
           $("#sendMessageButton").prop("disabled", false);
-          $("#sendMessageButton span").text("Arata-mi lectia demo");
+          $("#sendMessageButton span").text("Trimite mesaj");
           $("#sendMessageButton div").addClass("d-none");
         });
 
