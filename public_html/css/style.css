@@ -35,6 +35,31 @@
   margin-left: 10px;
 }
 
+/* stars design */
+.rating-css {
+  padding: 10px;
+}
+.rating-css div {
+  color: #ffe400;
+
+  text-align: center;
+}
+.rating-css input {
+  display: none;
+}
+.rating-css input + label {
+  font-size: 40px;
+  text-shadow: 1px 1px 0 #ffe400;
+  cursor: pointer;
+}
+.rating-css input:checked + label ~ label {
+  color: #838383;
+}
+.rating-css label:active {
+  transform: scale(0.8);
+  transition: 0.3s ease;
+}
+
 /* ! ###########x END OF CUSTOM DESIGN ########### */
 
 .fw-medium {
@@ -371,7 +396,7 @@
 
 .testimonial-carousel .owl-dots {
   margin-top: 24px;
-  display: flex;
+  display: none;
   align-items: flex-end;
   justify-content: center;
 }
