@@ -134,10 +134,12 @@ $(document).ready(function () {
   );
 
   $("#popupRatingForm").on("reset", function () {
-    // $("#ratingAlertMessage").html("");
     // Reset the default rating to 5 stars
     $("input[name='rating1'][value='5']").prop("checked", true);
     // Re-enable the submit button
     $("#submitRatingButton").prop("disabled", false);
+    setTimeout(function () {
+      $("#ratingAlertMessage").html("");
+    }, 1500);
   });
 });

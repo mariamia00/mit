@@ -59,7 +59,7 @@
   transform: scale(0.8);
   transition: 0.3s ease;
 }
-
+/* design summer camps */
 .summer-camp {
   background: url(../img/summer-camp.jpg);
   background-position: center center;
