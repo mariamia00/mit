@@ -1,6 +1,6 @@
 import {
   db,
-  ref,
+  dbRef,
   push,
   query,
   orderByChild,
@@ -21,7 +21,7 @@ import {
     return phoneRegex.test(phone);
   }
 
-  const studentsRef = ref(db, "studenti");
+  const studentsRef = dbRef(db, "studenti");
 
   function checkPhoneExists(phone) {
     return new Promise((resolve, reject) => {
