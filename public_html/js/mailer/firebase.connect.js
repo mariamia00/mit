@@ -1,8 +1,13 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
+import {
+  getStorage,
+  ref as storageRef,
+  uploadBytes,
+  getDownloadURL,
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 import {
   getDatabase,
-  ref,
+  ref as dbRef,
   push,
   query,
   orderByChild,
@@ -23,6 +28,19 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
 const db = getDatabase(app);
-export { db, ref, push, query, orderByChild, equalTo, get };
+const storage = getStorage(app);
+
+export {
+  db,
+  storage,
+  storageRef, // Storage reference
+  dbRef, // Database reference
+  push,
+  query,
+  orderByChild,
+  equalTo,
+  get,
+  uploadBytes,
+  getDownloadURL,
+};

@@ -529,15 +529,21 @@
               <div class="col-12">
                 <div class="rating-css">
                   <div class="star-icon">
-                    <input type="radio" name="rating1" id="rating1" />
+                    <input type="radio" name="rating" id="rating1" value="1" />
                     <label for="rating1" class="fa fa-star"></label>
-                    <input type="radio" name="rating1" id="rating2" />
+                    <input type="radio" name="rating" id="rating2" value="2" />
                     <label for="rating2" class="fa fa-star"></label>
-                    <input type="radio" name="rating1" id="rating3" />
+                    <input type="radio" name="rating" id="rating3" value="3" />
                     <label for="rating3" class="fa fa-star"></label>
-                    <input type="radio" name="rating1" id="rating4" />
+                    <input type="radio" name="rating" id="rating4" value="4" />
                     <label for="rating4" class="fa fa-star"></label>
-                    <input type="radio" name="rating1" id="rating5" />
+                    <input
+                      type="radio"
+                      name="rating"
+                      id="rating5"
+                      value="5"
+                      checked
+                    />
                     <label for="rating5" class="fa fa-star"></label>
                   </div>
                 </div>
@@ -562,7 +568,6 @@
                   required
                 />
               </div>
-
               <div class="col-12">
                 <label for="comment" class="form-label"
                   >Spune cateva cuvinte:</label
@@ -580,6 +585,7 @@
                   type="submit"
                   class="btn btn-primary w-100"
                   id="submitRatingButton"
+                  disabled
                 >
                   Trimite recenzia
                 </button>
@@ -630,6 +636,7 @@
     <script src="./js/mailer/validation.form.js"></script>
     <script type="module" src="./js/mailer/firebase.connect.js"></script>
     <script type="module" src="./js/mailer/demo.form.js"></script>
+    <script type="module" src="./js/mailer/rating.form.js"></script>
 
     <!-- Template Javascript -->
     <script src="./js/mailer/cookies.js"></script>
