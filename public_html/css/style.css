@@ -29,6 +29,15 @@
   animation: highlight-animation 2s ease-in-out;
 }
 
+.char-count {
+  text-align: right;
+  color: grey;
+}
+.testimonial-item .testimonial-text {
+  height: 190px;
+  overflow: hidden;
+}
+
 .testimonial-item img {
   width: 80px;
   height: 80px;
@@ -71,7 +80,7 @@
   display: none;
 }
 .rating-css input + label {
-  font-size: 40px;
+  font-size: 30px;
   text-shadow: 1px 1px 0 #ffe400;
   cursor: pointer;
 }
@@ -94,7 +103,7 @@
   position: absolute;
   top: -20px;
   left: 0;
-  right: -5vw; /* Extends more to the right */
+  right: -3vw; /* Extends more to the right */
   bottom: -20px;
   background-color: white;
   z-index: -1;
@@ -128,6 +137,9 @@
 }
 
 /* ! ###########x END OF CUSTOM DESIGN ########### */
+textarea {
+  resize: none;
+}
 
 .fw-medium {
   font-weight: 600 !important;
