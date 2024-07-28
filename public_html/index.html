@@ -108,16 +108,16 @@
         <div class="container top-0">
           <div class="row justify-content-start">
             <div class="col-sm-10 col-lg-8" id="demo">
-              <h1 class="display-4 text-white animated slideInDown">
+              <h1 class="display-4 text-white animated slideInDown pb-5">
                 Intră în lumea programării cu Informatic M IT
               </h1>
-              <p class="fs-6 text-dark my-5 bg-highlight bg-light">
+              <p class="fs-6 text-dark bg-highlight bg-light mb-4">
                 Transformă-ți pasiunea în carieră cu Informatic M IT! Descoperă
                 secretele codului și începe-ți succesul în tehnologie
                 alăturându-te cursurilor noastre de programare!
               </p>
               <button
-                class="btn btn-primary py-md-3 px-md-4 me-3 animated slideInRight"
+                class="btn btn-primary py-md-3 px-md-4 me-3 my-4 animated slideInRight"
                 data-bs-toggle="modal"
                 data-bs-target="#contactModal"
                 id="demoButton"
@@ -259,7 +259,7 @@
           data-bs-toggle="modal"
           data-bs-target="#ratingModal"
         >
-          Lasa o recenzie
+          Lasă o recenzie
         </button>
       </div>
     </div>
@@ -457,7 +457,7 @@
                 </div>
               </div>
               <div class="col-12">
-                <label for="image" class="form-label">Poza (optional):</label>
+                <label for="image" class="form-label">Poză (opțional):</label>
                 <input
                   type="file"
                   class="form-control"
@@ -478,7 +478,7 @@
               </div>
               <div class="col-12">
                 <label for="comment" class="form-label"
-                  >Spune cateva cuvinte:</label
+                  >Spune câteva cuvinte:</label
                 >
                 <textarea
                   class="form-control"
@@ -486,6 +486,8 @@
                   name="comment"
                   rows="3"
                   maxlength="250"
+                  ]
+                  minlength="10"
                   placeholder="Spune-ne ce crezi..."
                   required
                 ></textarea>
@@ -545,7 +547,6 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <!-- Contact Form Javascript -->
     <script src="./js/mailer/validation.form.js"></script>
-    <script type="module" src="./js/mailer/firebase.connect.js"></script>
     <script type="module" src="./js/mailer/demo.form.js"></script>
     <script type="module" src="./js/mailer/rating.form.js"></script>
     <script type="module" src="./js/mailer/display-reviews.js"></script>

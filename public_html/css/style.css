@@ -478,6 +478,8 @@ textarea {
 
 .testimonial-carousel .owl-item.center .testimonial-text * {
   color: #ffffff !important;
+  justify-content: center;
+  text-align: center;
 }
 
 .testimonial-carousel .owl-dots {

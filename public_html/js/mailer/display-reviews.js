@@ -80,8 +80,8 @@ function createReviewElement(review) {
       </div>
       <div
         class="testimonial-text bg-light text-center p-4 d-flex align-items-center"
-      >
-        <p class="mb-0">
+        >
+        <p class="mb-0 w-100">
           ${review.comment}
         </p>
       </div>
