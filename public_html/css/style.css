@@ -1,6 +1,6 @@
 /********** Template CSS **********/
 :root {
-  --primary: #0f51c4;
+  --primary: #06bbcc;
   --light: #f0fbfc;
   --dark: #181d38;
 }
@@ -73,7 +73,6 @@
 }
 .rating-css div {
   color: #ffe400;
-
   text-align: center;
 }
 .rating-css input {
@@ -91,6 +90,14 @@
   transform: scale(0.8);
   transition: 0.3s ease;
 }
+/* stars from firebase rating */
+.star-checked {
+  color: #ffe400;
+}
+
+.star-unchecked {
+  color: grey;
+}
 
 /* pseudo-element behind paragraph */
 .bg-highlight {
@@ -105,7 +112,7 @@
   left: 0;
   right: -3vw; /* Extends more to the right */
   bottom: -20px;
-  background-color: white;
+  background-color: #f3fbfb;
   z-index: -1;
   margin-left: -10vw; /* Ensures it touches the left side of the screen */
 

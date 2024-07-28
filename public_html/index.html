@@ -111,7 +111,7 @@
               <h1 class="display-4 text-white animated slideInDown">
                 Intră în lumea programării cu Informatic M IT
               </h1>
-              <p class="fs-6 text-dark my-5 bg-highlight">
+              <p class="fs-6 text-dark my-5 bg-highlight bg-light">
                 Transformă-ți pasiunea în carieră cu Informatic M IT! Descoperă
                 secretele codului și începe-ți succesul în tehnologie
                 alăturându-te cursurilor noastre de programare!
@@ -245,30 +245,11 @@
           </h6>
           <h1 class="mb-5">Ce spun studenții noștri!</h1>
         </div>
-        <div class="owl-carousel testimonial-carousel position-relative">
+        <div
+          class="owl-carousel testimonial-carousel position-relative"
+          id="testimonial-carousel"
+        >
           <!-- this should be a dynamic card from firebase -->
-          <div class="testimonial-item text-center">
-            <img
-              class="border rounded-circle p-2 mx-auto mb-3"
-              src="img/team-cosmin.jpg"
-              style="width: 80px; height: 80px"
-            />
-            <h5 class="mb-0">Name here</h5>
-            <div class="mb-2">
-              <!-- Star rating from firebase -->
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <div
-              class="testimonial-text bg-light text-center p-4 d-flex align-items-center"
-            >
-              <p class="mb-0">comment from firebase</p>
-            </div>
-          </div>
-          <!-- more dynamic testimonials here -->
         </div>
       </div>
       <!-- Leave a Review Button -->
@@ -567,6 +548,7 @@
     <script type="module" src="./js/mailer/firebase.connect.js"></script>
     <script type="module" src="./js/mailer/demo.form.js"></script>
     <script type="module" src="./js/mailer/rating.form.js"></script>
+    <script type="module" src="./js/mailer/display-reviews.js"></script>
 
     <!-- Template Javascript -->
     <script src="./js/mailer/cookies.js"></script>
