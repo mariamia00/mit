@@ -6,6 +6,29 @@
 }
 
 /* ! ########### CUSTOM DESIGN - aici a lucrat Maria ########### */
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 30px rgb(118, 200, 247);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  }
+}
+#demo:target #demoButton {
+  animation: glow 1.5s infinite;
+}
+
+.glow {
+  animation: glow 1.5s infinite;
+}
+
+.highlight {
+  animation: highlight-animation 2s ease-in-out;
+}
+
 .testimonial-item img {
   width: 80px;
   height: 80px;
@@ -59,6 +82,30 @@
   transform: scale(0.8);
   transition: 0.3s ease;
 }
+
+/* pseudo-element behind paragraph */
+.bg-highlight {
+  position: relative;
+  z-index: 1; /* Ensures text appears above the pseudo-element */
+}
+
+.bg-highlight::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 0;
+  right: -5vw; /* Extends more to the right */
+  bottom: -20px;
+  background-color: white;
+  z-index: -1;
+  margin-left: -10vw; /* Ensures it touches the left side of the screen */
+
+  transition: transform 0.3s ease;
+}
+.bg-highlight:hover::before {
+  transform: translateY(-5px);
+}
+
 /* design summer camps */
 .summer-camp {
   background: url(../img/summer-camp.jpg);
