@@ -1,4 +1,4 @@
-import { db, dbRef, get } from "./firebase.connect.js";
+import { db, dbRef, get } from "./mailer/firebase.connect.js";
 
 // Function to fetch reviews
 async function fetchApprovedReviews() {
@@ -48,7 +48,6 @@ async function fetchApprovedReviews() {
           },
         },
       });
-      console.log("Reviews successfully fetched and appended.");
     } else {
       console.log("No reviews found");
     }

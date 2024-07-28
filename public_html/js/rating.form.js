@@ -6,7 +6,7 @@ import {
   getDownloadURL,
   push,
   dbRef,
-} from "./firebase.connect.js";
+} from "./mailer/firebase.connect.js";
 
 // URL for the default image
 const defaultImageUrl =
@@ -96,7 +96,7 @@ $(document).ready(function () {
         $("#ratingAlertMessage").html(
           "<div class='alert alert-success alert-dismissible'>" +
             "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-hidden='true'></button>" +
-            "<strong>Multumim pentru recenzie!</strong>" + // Corrected concatenation
+            "<strong>Multumim pentru recenzie! Va apărea pe website în cel mai scurt timp!</strong>" + // Corrected concatenation
             "</div>"
         );
         // Reset the form

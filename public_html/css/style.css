@@ -99,6 +99,10 @@
   color: grey;
 }
 
+.about-img {
+  min-height: 400px;
+}
+
 /* pseudo-element behind paragraph */
 .bg-highlight {
   position: relative;
@@ -109,7 +113,7 @@
   content: "";
   position: absolute;
   top: -20px;
-  left: 0;
+  left: -5px;
   right: -3vw; /* Extends more to the right */
   bottom: -20px;
   background-color: #f3fbfb;
@@ -120,15 +124,6 @@
 }
 .bg-highlight:hover::before {
   transform: translateY(-5px);
-}
-
-/* design summer camps */
-.summer-camp {
-  background: url(../img/summer-camp.jpg);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: 850px;
-  width: 800px;
 }
 
 .btn-sm-c {
