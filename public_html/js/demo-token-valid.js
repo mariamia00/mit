@@ -15,29 +15,31 @@ function validateToken() {
 
   if (token === demo_token) {
     // Token matches the predefined value
-    document.getElementById("demoContent").style.display = "block";
-    document.getElementById("alternativeValidation").classList.add("d-none");
-  } else if (!token) {
-    // No token in local storage
-    document.getElementById("alternativeValidation").classList.remove("d-none");
+    $("#demoContent").show();
+    $("#alternativeValidation").addClass("d-none");
   } else {
-    // Token exists but doesn't match the predefined value
-    document.getElementById("alternativeValidation").classList.remove("d-none");
+    // No token or token doesn't match the predefined value
+    $("#alternativeValidation").removeClass("d-none");
   }
 }
 
 function validateAlternative() {
-  const phone = document.getElementById("inputPhone").value.trim();
-  const email = document.getElementById("inputEmail").value.trim();
+  const phone = $("#inputPhone").val().trim();
+  const email = $("#inputEmail").val().trim();
 
   if (!phone && !email) {
-    alert("Please enter either phone number or email.");
+    $("#display-msg").html(
+      "<div class='alert alert-danger alert-dismissible'>" +
+        "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-hidden='true'></button>" +
+        "<strong>Cel puțin un câmp trebuie să fie completat</strong>" +
+        "</div>"
+    );
     return;
   }
 
   const usersRef = dbRef(db, "studenti");
-
   let queryRef;
+
   if (phone) {
     queryRef = query(usersRef, orderByChild("phone"), equalTo(phone));
   } else {
@@ -52,21 +54,29 @@ function validateAlternative() {
         localStorage.setItem("demoAccessToken", demo_token);
 
         // Show demo content and hide alternative validation
-        document.getElementById("demoContent").style.display = "block";
-        document
-          .getElementById("alternativeValidation")
-          .classList.add("d-none");
+        $("#demoContent").show();
+        $("#alternativeValidation").addClass("d-none");
       } else {
-        alert("User not found. Please check the entered details.");
+        $("#display-msg").html(
+          "<div class='alert alert-danger alert-dismissible'>" +
+            "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-hidden='true'></button>" +
+            "<strong>Nu am putut gasi o potrivire cu datele trimise.</strong>" +
+            "</div>"
+        );
       }
     })
     .catch((error) => {
       console.error("Error validating alternative method:", error);
-      alert("Error validating user. Please try again.");
+      $("#display-msg").html(
+        "<div class='alert alert-danger alert-dismissible'>" +
+          "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-hidden='true'></button>" +
+          "<strong>A aparut o eroare la trimitere. Incercati din nou mai tarziu.</strong>" +
+          "</div>"
+      );
     });
 }
 
-document.addEventListener("DOMContentLoaded", validateToken);
-document
-  .getElementById("validateAlternative")
-  .addEventListener("click", validateAlternative);
+$(document).ready(function () {
+  validateToken();
+  $("#validateAlternative").click(validateAlternative);
+});
