@@ -96,7 +96,7 @@ $(document).ready(function () {
         $("#ratingAlertMessage").html(
           "<div class='alert alert-success alert-dismissible'>" +
             "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-hidden='true'></button>" +
-            "<strong>Multumim pentru recenzie! Va apărea pe website în cel mai scurt timp!</strong>" + // Corrected concatenation
+            "<strong>Multumim pentru recenzie! </br> Va apărea pe website în cel mai scurt timp!</strong>" + // Corrected concatenation
             "</div>"
         );
         // Reset the form
@@ -140,6 +140,6 @@ $(document).ready(function () {
     $("#submitRatingButton").prop("disabled", false);
     setTimeout(function () {
       $("#ratingAlertMessage").html("");
-    }, 1500);
+    }, 3500);
   });
 });

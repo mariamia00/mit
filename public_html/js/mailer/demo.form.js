@@ -41,6 +41,9 @@ import {
     });
   }
 
+  const demo_token =
+    "HKt45Hl2iw0P9xdu6=?2C13!?Jm6oR3BLqpUa8Ih8DNnYBIsoSyzsOjLehf2toiP";
+
   $("#popupContactForm input").jqBootstrapValidation({
     preventSubmit: true,
     submitSuccess: function ($form, event) {
@@ -80,6 +83,7 @@ import {
       checkPhoneExists(phone)
         .then((exists) => {
           if (!exists) {
+            localStorage.setItem("demoAccessToken", demo_token);
             // Phone number does not exist, add data to Firebase
             return push(studentsRef, {
               name: name,

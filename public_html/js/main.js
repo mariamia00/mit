@@ -71,10 +71,32 @@
     items: 1,
     dots: false,
     loop: true,
-    nav: true,
+
     navText: [
-      '<i class="bi bi-chevron-right"></i>',
       '<i class="bi bi-chevron-left"></i>',
+      '<i class="bi bi-chevron-right"></i>',
     ],
+    responsive: {
+      0: {
+        nav: false, // No nav on extra small screens
+        items: 1,
+      },
+      576: {
+        nav: false, // No nav on small screens
+        items: 1,
+      },
+      768: {
+        nav: true, // Show nav
+        items: 1,
+      },
+      992: {
+        nav: true, // Show nav
+        items: 1,
+      },
+      1200: {
+        nav: true, // Show nav
+        items: 1,
+      },
+    },
   });
 })(jQuery);

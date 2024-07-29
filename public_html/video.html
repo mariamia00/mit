@@ -58,10 +58,60 @@
         </div>
       </div>
     </nav>
-    <!-- Navbar End -->
+
+    <!-- token checkup -->
+
+    <div
+      id="alternativeValidation"
+      class="container-fluid d-flex flex-column justify-content-center align-items-center"
+      style="min-height: 75vh"
+    >
+      <p class="" style="text-align: justify">
+        Dacă ați trimis formularul, dar nu mai aveți acces la lecția demo,
+        completați numărul de telefon sau emailul trimis în formular (puteți
+        completa doar una sau pe ambele). <br />Dacă este găsită o potrivire
+        pentru email sau telefon, veți primi instant acces la lecția demo.
+      </p>
+      <div class="card p-4 shadow-sm w-100 mt-4" style="max-width: 450px">
+        <form id="alternativeForm" novalidate="novalidate" class="row g-3">
+          <div class="col-12">
+            <input
+              type="text"
+              id="inputPhone"
+              class="form-control"
+              placeholder="Nr de telefon"
+            />
+          </div>
+          <div class="col-12">
+            <input
+              type="email"
+              id="inputEmail"
+              class="form-control"
+              placeholder="Email"
+            />
+          </div>
+          <div class="col-12">
+            <button
+              type="button"
+              id="validateAlternative"
+              class="btn btn-primary w-100"
+            >
+              Verifică
+            </button>
+          </div>
+          <div id="alternativeMessage" class="mt-4 text-center">
+            <a href="index.html#demo" class="bold text-center">
+              <strong
+                >Vreau să trimit formularul pentru access la lecția demo</strong
+              >
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <!-- Video Content Start -->
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-5" id="demoContent" style="display: none">
       <div class="row justify-content-center">
         <div class="col-lg-8 col-md-6 text-center">
           <!-- Adjusted to col-lg-8 -->
@@ -177,6 +227,35 @@
       </div>
     </div>
 
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"
+      ><i class="bi bi-arrow-up"></i
+    ></a>
+
+    <!-- Cookie Banner Start -->
+    <div id="cookieBanner" class="cookie-banner">
+      <p>
+        Folosim cookie-uri pentru a vă oferi cea mai bună experiență pe site-ul
+        nostru. Prin continuarea navigării pe acest site, sunteți de acord cu
+        utilizarea cookie-urilor esentiale. Pentru mai multe informații despre
+        utilizarea cookie-urilor și modul în care datele dumneavoastră sunt
+        folosite, vă rugăm să citiți
+        <a href="politica.html" style="color: #1e90ff"
+          >politica de confidențialitate</a
+        >.
+      </p>
+      <br />
+
+      <button id="rejectCookies" class="btn btn-secondary">
+        Accept doar cookies esentiale
+      </button>
+
+      <button id="acceptCookies" class="btn btn-primary">
+        Accept toate cookies
+      </button>
+    </div>
+    <!-- Cookie Banner End -->
+
     <!-- JavaScript files (similar to index.html) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -186,6 +265,7 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
     <script type="module" src="js/demo-token-valid.js"></script>
+    <script src="./js/cookies.js"></script>
     <!-- Additional scripts as per your requirements -->
   </body>
 </html>
