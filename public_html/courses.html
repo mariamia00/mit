@@ -214,7 +214,7 @@
     <!-- Tabere de vara start -->
 
     <div
-      class="container bg-primary py-5"
+      class="container bg-primary py-5 my-5"
       style="
         background: url('./img/summer-camp.jpg') center center no-repeat;
         background-size: cover;
@@ -249,17 +249,21 @@
           </div>
         </div>
       </div>
+      <div class="text-center">
+        <button
+          class="bg-light text-dark border-0 btn btn-primary py-md-3 px-md-5 fs-5 animated slideInRight"
+          data-bs-toggle="modal"
+          data-bs-target="#tabereModal"
+        >
+          Info tabere
+        </button>
+      </div>
     </div>
 
-    <div class="text-center mt-3">
-      <button class="btn btn-primary py-md-3 px-md-5 animated slideInRight">
-        Info tabere
-      </button>
-    </div>
     <!-- Tabere de vara end -->
 
     <!-- Categories Start -->
-    <div class="container-xxl py-5 category">
+    <div class="container-xxl py-5 my-5 category">
       <div class="container">
         <div class="text-center wow fadeInUp mb-3" data-wow-delay="0.1s">
           <h6 class="section-title bg-white text-center text-primary px-3">
@@ -473,6 +477,38 @@
     </div>
 
     <!-- Carousel End -->
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="tabereModal"
+      tabindex="-1"
+      aria-labelledby="contactModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content px-4 py-2">
+          <div class="modal-header">
+            <h5 class="modal-title" id="contactModalLabel">
+              Alege ce vrei sa înveți intensiv timp de 3 luni
+            </h5>
+            <button
+              type="button"
+              class="btn btn-primary btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <small class="m-2">
+            Alege dintr-o varietate de limbaje de programare si tehnologii pe
+            care te putem ajuta sa le stapanesti
+          </small>
+          <div class="modal-body">
+            <!-- content later -->
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Footer Start -->
     <div

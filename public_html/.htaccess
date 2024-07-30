@@ -3,20 +3,7 @@ AddType text/html .html
 AddOutputFilter INCLUDES .html
 
 
-# Redirect root URL to the main website
-RewriteEngine On
-RewriteCond %{REQUEST_URI} ^/$
-RewriteRule (.*) /index.html [L]
 
-# Allow access to the dashboard
-RewriteRule ^dashboard(/.*)?$ dashboard/$1 [L]
-
-# Custom 404 Error Pages
-RewriteCond %{REQUEST_URI} ^/dashboard
-RewriteRule .* - [R=404,L]
-
+# General 404 error page for the main site
 ErrorDocument 404 /404.html
 
-<FilesMatch "^dashboard/">
-    ErrorDocument 404 /dashboard/404.html
-</FilesMatch>
