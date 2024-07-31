@@ -47,7 +47,7 @@ if (!empty($message)) {
 }
 
 $recipientName = "MIT FORMS";
-$recipientEmail = "maria_mia00@yahoo.com";
+$recipientEmail = "mitinformaticcoding@gmail.com";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
