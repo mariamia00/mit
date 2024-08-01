@@ -145,22 +145,9 @@
               max-width: 100%;
             "
           >
-            <iframe
-              class="embed-responsive-item"
-              src="https://www.youtube.com/embed/jB-efRIRZbA?controls=0&modestbranding=1&rel=0"
-              title="video test"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-              style="
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-              "
-            ></iframe>
+            <video id="myVideo" controls width="100%">
+              Acest broswer nu poate afisa videoclipul.
+            </video>
           </div>
         </div>
       </div>
@@ -172,20 +159,23 @@
       class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn"
       data-wow-delay="0.1s"
     >
-      <div class="container py-5">
+      <div class="container py-2">
         <div class="row g-5">
           <div class="col-lg-3 col-md-6">
-            <h4 class="text-white mb-3">Link-uri</h4>
             <a class="btn btn-link" href="about.html">Despre Noi</a>
             <a class="btn btn-link" href="contact.html">Contact</a>
             <a class="btn btn-link" href="termeni.html">Termeni si Conditii</a>
+          </div>
+          <div class="col-lg-3 col-md-6">
             <a class="btn btn-link" href="politica.html"
               >Politica de confidențialitate</a
             >
             <a class="btn btn-link" href="faq.html">Întrebări frecvente</a>
+            <a class="btn btn-link" href="index.html#demo">
+              Lecție demonstrativă</a
+            >
           </div>
-          <div class="col-lg-4 col-md-4">
-            <h4 class="text-white mb-3">Contact</h4>
+          <div class="col-lg-4 col-md-6">
             <p class="mb-2">
               <i class="fa fa-map-marker-alt me-3"></i>Strada Alexandru Vlahuta
               nr 1
@@ -196,6 +186,8 @@
             <p class="mb-2">
               <i class="fa fa-envelope me-3"></i>mitinformaticcoding@gmail.com
             </p>
+          </div>
+          <div class="col-lg-2 col-md-4">
             <div class="d-flex pt-2">
               <a
                 class="btn btn-outline-light btn-social"
@@ -259,6 +251,14 @@
       </button>
     </div>
     <!-- Cookie Banner End -->
+    <script>
+      var video = document.getElementById("myVideo");
+
+      // Add event listener to prevent right-click on the video
+      video.addEventListener("contextmenu", function (e) {
+        e.preventDefault(); // Disable context menu on right-click
+      });
+    </script>
 
     <!-- JavaScript files (similar to index.html) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -268,7 +268,9 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    <script type="module" src="js/mailer/firebase.connect.js"></script>
     <script type="module" src="js/demo-token-valid.js"></script>
+    <script type="module" src="js/video.js"></script>
     <script src="./js/cookies.js"></script>
     <!-- Additional scripts as per your requirements -->
   </body>

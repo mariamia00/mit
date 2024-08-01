@@ -8,9 +8,6 @@
   touch-action: manipulation;
 }
 
-.carousel-btns {
-  margin-top: 1rem;
-}
 /* ! ########### CUSTOM DESIGN - aici a lucrat Maria ########### */
 @keyframes glow {
   0% {
@@ -24,6 +21,15 @@
   }
 }
 
+/* Media Queries for Small Screens */
+@media (max-width: 600px) {
+  .video-container {
+    padding-bottom: 75%; /* Adjust aspect ratio for smaller screens if needed */
+  }
+  .video-container video {
+    object-fit: contain; /* Ensure the entire video is visible on small screens */
+  }
+}
 /* * cool animation */
 @keyframes wave {
   0%,
