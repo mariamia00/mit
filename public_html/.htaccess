@@ -1,0 +1,9 @@
+Options +Includes
+AddType text/html .html
+AddOutputFilter INCLUDES .html
+
+
+
+# General 404 error page for the main site
+ErrorDocument 404 /404.html
+
