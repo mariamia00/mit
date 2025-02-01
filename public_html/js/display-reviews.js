@@ -103,7 +103,6 @@ function createReviewElement(review) {
 // ======================= VIDEO TESTIMONIAL FETCHING =======================
 
 // Function to fetch videos from Firebase Storage
-
 async function fetchVideoTestimonials() {
   try {
     const videoContainer = document.getElementById("video-carousel");
@@ -121,11 +120,23 @@ async function fetchVideoTestimonials() {
       const videoElement = document.createElement("div");
       videoElement.classList.add("item");
       videoElement.innerHTML = `
-        <video class="w-100 rounded" controls>
-          <source src="${url}" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+        <div class="video-item">
+          <video class="w-100 rounded" controls>
+            <source src="${url}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
       `;
+
+      // Add an event listener to open the video in the modal
+      videoElement
+        .querySelector("video")
+        .addEventListener("click", function () {
+          // Set the video source in the modal
+          document.getElementById("modal-video").src = url;
+          // Open the modal
+          $("#videoModal").modal("show");
+        });
 
       videoContainer.appendChild(videoElement);
     }
@@ -140,20 +151,9 @@ async function fetchVideoTestimonials() {
       margin: 10,
       nav: true,
       dots: true,
-      items: 1,
+      items: 3,
       autoplayTimeout: 5000,
       autoplayHoverPause: true,
-      responsive: {
-        0: {
-          items: 1,
-        },
-        768: {
-          items: 2,
-        },
-        1200: {
-          items: 3,
-        },
-      },
     });
   } catch (error) {
     console.error("Error fetching videos:", error);

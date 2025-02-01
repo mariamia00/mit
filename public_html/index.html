@@ -249,13 +249,11 @@
           <h1 class="mb-4"></h1>
         </div>
         <div class="row justify-content-center">
-          <div class="col-lg-10">
-            <div
-              id="video-carousel"
-              class="owl-carousel testimonial-carousel video-carousel"
-            >
-              <!-- Videos will be injected here dynamically -->
-            </div>
+          <div
+            id="video-carousel"
+            class="owl-carousel testimonial-carousel video-carousel"
+          >
+            <!-- Videos will be injected here dynamically -->
           </div>
         </div>
       </div>
@@ -362,6 +360,33 @@
     </div>
 
     <!-- Footer End -->
+
+    <!-- Modal for displaying video -->
+    <div
+      class="modal fade"
+      id="videoModal"
+      tabindex="-1"
+      aria-labelledby="videoModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <video id="modal-video" class="w-100" controls>
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Modal -->
     <div
