@@ -117,10 +117,19 @@ async function fetchVideoTestimonials() {
     for (const item of result.items) {
       const url = await getDownloadURL(item);
 
+      // Get the video name without the file extension
+      const videoTitle = item.name.replace(".mp4", ""); // Remove .mp4 from filename
+
       const videoElement = document.createElement("div");
       videoElement.classList.add("item");
       videoElement.innerHTML = `
         <div class="video-item">
+          <!-- Title above the video -->
+          <div class="video-title text-center">
+            <h5>${videoTitle}</h5> <!-- Display video title without .mp4 extension -->
+          </div>
+    
+          <!-- Video element -->
           <video class="w-100 rounded" controls>
             <source src="${url}" type="video/mp4">
             Your browser does not support the video tag.
@@ -128,16 +137,8 @@ async function fetchVideoTestimonials() {
         </div>
       `;
 
-      // Add an event listener to open the video in the modal
-      videoElement
-        .querySelector("video")
-        .addEventListener("click", function () {
-          // Set the video source in the modal
-          document.getElementById("modal-video").src = url;
-          // Open the modal
-          $("#videoModal").modal("show");
-        });
-
+      // No need for the modal event listener anymore
+      // Just append the video element directly to the container
       videoContainer.appendChild(videoElement);
     }
 
