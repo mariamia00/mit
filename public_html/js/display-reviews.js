@@ -106,59 +106,91 @@ function createReviewElement(review) {
 async function fetchVideoTestimonials() {
   try {
     const videoContainer = document.getElementById("video-carousel");
+    const videoSection = videoContainer.parentElement;
     const videoFolderRef = storageRef(storage, "testimonial-videos");
-    // Get all video files from the folder
+
+    // Get all video files from Firebase
     const result = await listAll(videoFolderRef);
 
-    // Clear existing videos before adding new ones
+    // Clear existing videos
     videoContainer.innerHTML = "";
+
+    // If no videos are found, display "Coming Soon" message (only once)
+    if (result.items.length === 0) {
+      videoSection.innerHTML = `<div class="text-center"><h5>Coming Soon</h5></div>`;
+      return;
+    }
 
     // Loop through videos and create video elements
     for (const item of result.items) {
       const url = await getDownloadURL(item);
-
-      // Get the video name without the file extension
-      const videoTitle = item.name.replace(".mp4", ""); // Remove .mp4 from filename
+      const videoTitle = item.name.replace(".mp4", ""); // Remove file extension
 
       const videoElement = document.createElement("div");
       videoElement.classList.add("item");
       videoElement.innerHTML = `
         <div class="video-item">
-          <!-- Title above the video -->
           <div class="video-title text-center">
-            <h5>${videoTitle}</h5> <!-- Display video title without .mp4 extension -->
+            <h5>${videoTitle}</h5>
           </div>
-    
-          <!-- Video element -->
-          <video class="w-100 rounded" controls>
+          <video class="w-100 rounded video-player" controls>
             <source src="${url}" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
       `;
 
-      // No need for the modal event listener anymore
-      // Just append the video element directly to the container
       videoContainer.appendChild(videoElement);
     }
 
-    // Destroy previous Owl Carousel if initialized
-    $(videoContainer).owlCarousel("destroy");
+    // ✅ Initialize Owl Carousel AFTER videos are loaded
+    initializeVideoCarousel();
 
-    // Reinitialize Owl Carousel for videos
-    $(".video-carousel").owlCarousel({
-      autoplay: true,
-      loop: true,
-      margin: 10,
-      nav: true,
-      dots: true,
-      items: 3,
-      autoplayTimeout: 5000,
-      autoplayHoverPause: true,
-    });
+    // ✅ Ensure only one video plays at a time
+    setupSingleVideoPlay();
   } catch (error) {
     console.error("Error fetching videos:", error);
+    // Show "Coming Soon" only once if an error occurs
+    const videoSection =
+      document.getElementById("video-carousel").parentElement;
+    videoSection.innerHTML = `<div class="text-center"><h5>Coming Soon</h5></div>`;
   }
+}
+
+// ✅ Function to Initialize Owl Carousel
+function initializeVideoCarousel() {
+  $(".video-carousel").owlCarousel({
+    autoplay: true,
+    loop: true,
+    margin: 10,
+    nav: true,
+    dots: true,
+    items: 1,
+    autoplayTimeout: 5000,
+    autoplayHoverPause: true,
+    responsive: {
+      0: { items: 1 },
+      768: { items: 2 },
+      1200: { items: 3 },
+    },
+  });
+}
+
+// ✅ Function to Make Sure Only One Video Plays at a Time
+function setupSingleVideoPlay() {
+  const videos = document.querySelectorAll(".video-player");
+
+  videos.forEach((video) => {
+    video.addEventListener("play", function () {
+      // Pause all other videos except the one being played
+      videos.forEach((otherVideo) => {
+        if (otherVideo !== video) {
+          otherVideo.pause();
+          otherVideo.currentTime = 0; // Optional: Reset video progress
+        }
+      });
+    });
+  });
 }
 
 // ======================= EVENT LISTENERS =======================
