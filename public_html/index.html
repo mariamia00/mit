@@ -23,6 +23,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
       rel="stylesheet"
     />
+
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
       rel="stylesheet"
@@ -248,13 +249,12 @@
           </h6>
           <h1 class="mb-4"></h1>
         </div>
-        <div class="row justify-content-center">
-          <div
-            id="video-carousel"
-            class="owl-carousel testimonial-carousel video-carousel"
-          >
-            <!-- Videos will be injected here dynamically -->
-          </div>
+
+        <div
+          id="video-carousel"
+          class="owl-carousel headercarousel video-carousel"
+        >
+          <!-- Videos will be injected here dynamically -->
         </div>
       </div>
     </div>
@@ -270,7 +270,7 @@
           <h1 class="mb-5">Ce spun studenții noștri!</h1>
         </div>
         <div
-          class="owl-carousel testimonial-carousel position-relative"
+          class="owl-carousel testimonial-carousel header-carousel position-relative"
           id="testimonial-carousel"
         >
           <!-- this should be a dynamic card from firebase -->
@@ -575,10 +575,10 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <!-- Contact Form Javascript -->
+    <script type="module" src="./js/display-reviews.js"></script>
     <script src="./js/mailer/validation.form.js"></script>
     <script type="module" src="./js/mailer/demo.form.js"></script>
     <script type="module" src="./js/rating.form.js"></script>
-    <script type="module" src="./js/display-reviews.js"></script>
 
     <!-- Template Javascript -->
     <script src="./js/cookies.js"></script>

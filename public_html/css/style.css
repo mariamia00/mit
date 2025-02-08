@@ -342,6 +342,27 @@ textarea {
   top: -100px;
   transition: 0.5s;
 }
+.testimonial-carousel .owl-dots {
+  margin-top: 24px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.testimonial-carousel .owl-dot {
+  position: relative;
+  display: inline-block;
+  margin: 0 5px;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #cccccc;
+  transition: 0.5s;
+}
+
+.testimonial-carousel .owl-dot.active {
+  background: var(--primary);
+  border-color: var(--primary);
+}
 
 @media (min-width: 992px) {
   .navbar .nav-item .dropdown-menu {
@@ -371,7 +392,9 @@ textarea {
   position: absolute;
   top: 50%;
   right: 8%;
+  z-index: 10;
   transform: translateY(-50%);
+  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
 }
@@ -391,10 +414,11 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
-  background: transparent;
-  border: 1px solid #ffffff;
+  color: var(--light);
+  background: var(--primary);
+  border: 1px solid var(--light);
   font-size: 22px;
+
   transition: 0.5s;
 }
 
@@ -464,6 +488,27 @@ textarea {
   .header-carousel .owl-carousel-item {
     position: relative;
     min-height: 400px;
+  }
+
+  .header-carousel .owl-nav {
+    position: relative; /* Change from absolute */
+    top: auto;
+    right: auto;
+    left: auto;
+    transform: none;
+    display: flex;
+    flex-direction: row; /* Change from column to row */
+    justify-content: center;
+    margin-top: 20px; /* Space between carousel and arrows */
+  }
+
+  /* Adjust Arrow Styles */
+  .header-carousel .owl-nav .owl-prev,
+  .header-carousel .owl-nav .owl-next {
+    margin: 0 10px; /* Space between arrows */
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
   }
 }
 
@@ -564,28 +609,6 @@ textarea {
   color: #ffffff !important;
   justify-content: center;
   text-align: center;
-}
-
-.testimonial-carousel .owl-dots {
-  margin-top: 24px;
-  display: none;
-  align-items: flex-end;
-  justify-content: center;
-}
-
-.testimonial-carousel .owl-dot {
-  position: relative;
-  display: inline-block;
-  margin: 0 5px;
-  width: 15px;
-  height: 15px;
-  border: 1px solid #cccccc;
-  transition: 0.5s;
-}
-
-.testimonial-carousel .owl-dot.active {
-  background: var(--primary);
-  border-color: var(--primary);
 }
 
 /*** Footer ***/

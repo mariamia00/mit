@@ -43,7 +43,11 @@ async function fetchApprovedReviews() {
         margin: 24,
         dots: false,
         loop: true,
-        nav: false,
+        nav: true,
+        navText: [
+          '<i class="bi bi-chevron-left"></i>',
+          '<i class="bi bi-chevron-right"></i>',
+        ],
         responsive: {
           0: {
             items: 1,
@@ -143,10 +147,9 @@ async function fetchVideoTestimonials() {
       videoContainer.appendChild(videoElement);
     }
 
-    // ✅ Initialize Owl Carousel AFTER videos are loaded
     initializeVideoCarousel();
 
-    // ✅ Ensure only one video plays at a time
+    // Ensure only one video plays at a time
     setupSingleVideoPlay();
   } catch (error) {
     console.error("Error fetching videos:", error);
@@ -157,26 +160,35 @@ async function fetchVideoTestimonials() {
   }
 }
 
-// ✅ Function to Initialize Owl Carousel
+// Function to Initialize Owl Carousel AFTER videos are loaded
 function initializeVideoCarousel() {
+  const carousel = $(".video-carousel");
+
+  // Destroy existing Owl Carousel instance (if any)
+  carousel.trigger("destroy.owl.carousel");
+
   $(".video-carousel").owlCarousel({
     autoplay: true,
     loop: true,
     margin: 10,
+    dots: false,
     nav: true,
-    dots: true,
     items: 1,
-    autoplayTimeout: 5000,
+    autoplayTimeout: 10000, // 10 seconds
     autoplayHoverPause: true,
+    navText: [
+      '<i class="bi bi-chevron-left"></i>',
+      '<i class="bi bi-chevron-right"></i>',
+    ],
     responsive: {
-      0: { items: 1 },
-      768: { items: 2 },
-      1200: { items: 3 },
+      0: { nav: true, items: 1 },
+      768: { nav: true, items: 2 },
+      1200: { nav: true, items: 3 },
     },
   });
 }
 
-// ✅ Function to Make Sure Only One Video Plays at a Time
+// Function to Make Sure Only One Video Plays at a Time
 function setupSingleVideoPlay() {
   const videos = document.querySelectorAll(".video-player");
 
@@ -194,9 +206,7 @@ function setupSingleVideoPlay() {
 }
 
 // ======================= EVENT LISTENERS =======================
-
-// Fetch and display testimonials on page load
-document.addEventListener("DOMContentLoaded", fetchApprovedReviews);
-
 // Fetch and display video testimonials on page load
 document.addEventListener("DOMContentLoaded", fetchVideoTestimonials);
+// Fetch and display testimonials on page load
+document.addEventListener("DOMContentLoaded", fetchApprovedReviews);
