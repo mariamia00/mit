@@ -121,7 +121,7 @@ async function fetchVideoTestimonials() {
 
     // If no videos are found, display "Coming Soon" message (only once)
     if (result.items.length === 0) {
-      videoSection.innerHTML = `<div class="text-center"><h5>Coming Soon</h5></div>`;
+      videoSection.innerHTML = `<div class="text-center"><h5>Testimoniale video in curand</h5></div>`;
       return;
     }
 
@@ -156,7 +156,7 @@ async function fetchVideoTestimonials() {
     // Show "Coming Soon" only once if an error occurs
     const videoSection =
       document.getElementById("video-carousel").parentElement;
-    videoSection.innerHTML = `<div class="text-center"><h5>Coming Soon</h5></div>`;
+    videoSection.innerHTML = `<div class="text-center"><h5>Testimoniale video in curand</h5></div>`;
   }
 }
 
@@ -171,19 +171,15 @@ function initializeVideoCarousel() {
     autoplay: true,
     loop: true,
     margin: 10,
-    dots: false,
-    nav: true,
-    items: 1,
+    dots: true,
+    nav: false,
+    items: 3,
     autoplayTimeout: 10000, // 10 seconds
     autoplayHoverPause: true,
-    navText: [
-      '<i class="bi bi-chevron-left"></i>',
-      '<i class="bi bi-chevron-right"></i>',
-    ],
     responsive: {
-      0: { nav: true, items: 1 },
-      768: { nav: true, items: 2 },
-      1200: { nav: true, items: 3 },
+      0: { items: 1 },
+      768: { items: 2 },
+      1200: { items: 3 },
     },
   });
 }
