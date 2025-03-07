@@ -37,7 +37,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Template Stylesheet -->
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/style.css?v=1.0" />
   </head>
 
   <body>
@@ -78,9 +78,13 @@
         <div class="navbar-nav ms-auto p-4 p-lg-0">
           <a href="index.html" class="nav-item nav-link active">Acasa</a>
 
-          <a href="courses.html" class="nav-item nav-link"
-            >Cursuri & Portofoliu</a
-          >
+          <a href="courses.html" class="nav-item nav-link position-relative">
+            Cursuri & Portofoliu
+            <span class="position-absolute start-0 text-danger animated-new">
+              Nou
+            </span>
+          </a>
+
           <a href="team.html" class="nav-item nav-link">Echipa Noastra</a>
 
           <a href="about.html" class="nav-item nav-link">Despre</a>
@@ -200,7 +204,6 @@
             Galerie
           </h6>
           <h1 class="mb-4">Studenții noștri</h1>
-          <p>Transformă-ți ideile în realitate</p>
         </div>
         <div class="row g-3">
           <div class="col-lg-7 col-md-6">
@@ -210,12 +213,12 @@
                   <img class="img-fluid" src="img/img1.jpg" alt="" />
                 </a>
               </div>
-              <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
+              <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.2s">
                 <a class="position-relative d-block overflow-hidden" href="">
                   <img class="img-fluid" src="img/img2.jpg" alt="" />
                 </a>
               </div>
-              <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
+              <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
                 <a class="position-relative d-block overflow-hidden" href="">
                   <img class="img-fluid" src="img/img3.jpg" alt="" />
                 </a>
@@ -224,7 +227,7 @@
           </div>
           <div
             class="col-lg-5 col-md-6 wow zoomIn"
-            data-wow-delay="0.7s"
+            data-wow-delay="0.4s"
             style="min-height: 350px"
           >
             <a class="position-relative d-block h-100 overflow-hidden" href="">
@@ -243,7 +246,7 @@
     <!-- video gallery start-->
     <div class="container-xxl py-5">
       <div class="container">
-        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+        <div class="text-center">
           <h6 class="section-title bg-white text-center text-primary px-3">
             Testimoniale
           </h6>
