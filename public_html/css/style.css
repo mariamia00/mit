@@ -31,7 +31,7 @@
   }
 }
 
-/* cool anition for small new text */
+/* ---------cool animation for small new text -------*/
 @keyframes growShrinkRotate {
   0% {
     transform: translate(-50%, -50%) scale(1) rotate(-10deg);
@@ -52,6 +52,48 @@
   text-shadow: 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.74);
   animation: growShrinkRotate 2s infinite;
 }
+
+/* -------animation for new span in courses----------*/
+@keyframes shake-with-pause {
+  0%,
+  100% {
+    transform: translateX(0);
+  } /* Start and end at the normal position */
+  10% {
+    transform: translateX(-6px);
+  }
+  20% {
+    transform: translateX(0);
+  }
+  30% {
+    transform: translateX(-6px);
+  }
+  40% {
+    transform: translateX(0);
+  }
+  /* Pause for the remaining time */
+}
+
+.newshake {
+  animation: shake-with-pause 1.7s infinite; /* Runs the animation every 2 seconds */
+}
+
+/* ------ dark gradient over course images */
+.image-overlay {
+  position: relative;
+}
+
+.image-overlay::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(24, 29, 56, 0.5);
+  pointer-events: none; /* Ensures clicks go through */
+}
+
 /* * cool animation waves for summer courses page */
 @keyframes wave {
   0%,
