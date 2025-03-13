@@ -255,6 +255,18 @@
   margin-left: 10px;
 }
 
+/* Default font size for larger screens */
+.btn-fs {
+  font-size: 1.25rem; /* fs-5 equivalent */
+}
+
+/* Font size for small screens */
+@media (max-width: 600px) {
+  .btn-fs {
+    font-size: 1.125rem; /* fs-6 equivalent */
+  }
+}
+
 /* stars design */
 .rating-css {
   padding: 10px;
