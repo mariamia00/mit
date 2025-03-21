@@ -85,7 +85,7 @@
   max-width: 500px;
   border-top: solid 1px rgba(255, 255, 255, 0.2);
   border-left: solid 1px rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 @keyframes slideIn {
@@ -103,12 +103,9 @@
   top: -20px;
   left: -40px;
   letter-spacing: 1px;
-  background: rgba(103, 88, 152, 0.3);
-  border-top: solid 1px rgba(255, 255, 255, 0.2);
-  border-left: solid 1px rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  background: rgb(82, 72, 117);
+
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); */
   padding: 8px 15px;
   font-weight: bold;
   color: white;
@@ -116,7 +113,48 @@
   z-index: 10;
   opacity: 0; /* Hidden initially */
   animation: slideIn 0.4s ease-out 1.3s forwards;
+  isolation: isolate;
+  overflow: hidden;
 }
+
+.badge-glass::after,
+.badge-glass::before {
+  content: "";
+  position: absolute;
+}
+.badge-glass::before {
+  width: 200%;
+  height: 200%;
+  background-image: conic-gradient(
+    #33deee 0deg,
+    #33deee 60deg,
+    /* Reduce the first solid section */ transparent 100deg,
+    /* Increase transparent space */ transparent 170deg,
+    #33deee 190deg,
+    /* Reduce second solid section */ #33deee 240deg,
+    /* Further reduce */ transparent 280deg
+  );
+
+  inset: -50%;
+  z-index: -2;
+  animation: border 5s linear infinite;
+}
+
+@keyframes border {
+  to {
+    transform: rotateZ(-360deg);
+  }
+}
+
+.badge-glass::after {
+  --inset: 0.13rem;
+  background: rgb(82, 72, 117);
+  inset: var(--inset);
+  border-radius: calc(var(--border-size) - var(--inset));
+  z-index: -1;
+  transition: all 0.35s linear;
+}
+
 /* 📱 On small screens, center the badge */
 @media screen and (max-width: 768px) {
   .badge-glass {
