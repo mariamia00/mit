@@ -21,13 +21,9 @@
   }
 }
 
-/* Media Queries for Small Screens */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .video-container {
-    padding-bottom: 75%; /* Adjust aspect ratio for smaller screens if needed */
-  }
-  .video-container video {
-    object-fit: contain; /* Ensure the entire video is visible on small screens */
+    height: 100vh; /* Adjust if needed */
   }
 }
 
@@ -79,8 +75,8 @@
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  background: rgba(188, 177, 232, 0.2);
+  backdrop-filter: blur(5px);
   border-radius: 5px;
   max-width: 500px;
   border-top: solid 1px rgba(255, 255, 255, 0.2);
@@ -177,6 +173,24 @@
   height: 100%;
   background: rgba(24, 29, 56, 0.5);
   pointer-events: none; /* Ensures clicks go through */
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full height of the viewport */
+  overflow: hidden; /* Hide anything that overflows */
+}
+
+.video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Stretch to full width of the container */
+  height: 100%; /* Stretch to full height of the container */
+  object-fit: cover; /* Make sure the video covers the whole div */
+  object-position: center center; /* Keep the center of the video visible */
+  z-index: -1;
 }
 
 /* * cool animation waves for summer courses page */
