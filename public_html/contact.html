@@ -52,7 +52,7 @@
           <a href="index.html" class="nav-item nav-link">Acasa</a>
 
           <a href="courses.html" class="nav-item nav-link position-relative">
-            Cursuri & Portofoliu
+            Servicii & Produse
             <span class="position-absolute start-0 text-danger animated-new">
               Nou
             </span>
@@ -84,87 +84,99 @@
     <!-- Form Content Start -->
 
     <div class="container py-5">
-      <div class="row justify-content-center">
-        <div class="col-lg-5 mb-4 mb-lg-0">
-          <h2 class="mb-4">Contactează-ne</h2>
-          <p>
-            Pentru întrebări sau asistență, nu ezitați să ne contactați
-            completând formularul nostru. Vă vom răspunde în cel mai scurt timp
-            posibil.
-          </p>
-          <p>Sau ne puteti contacta folosind si informatiile de mai jos.</p>
-          <p class="mb-2">
-            <i class="fa fa-map-marker-alt me-3"></i>Strada Alexandru Vlahuta nr
-            1
-          </p>
-          <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+40 738055073</p>
-          <p class="mb-2">
-            <i class="fa fa-envelope me-3"></i>mitinformaticcoding@gmail.com
-          </p>
-        </div>
-        <!-- Form Column -->
-        <div class="col-lg-6">
-          <div class="card shadow p-4">
-            <h2 class="text-center mb-4">Completează Formularul</h2>
-            <form id="contactForm" novalidate="novalidate" class="row g-3">
-              <div class="col-12">
-                <label for="name" class="form-label">Nume:</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="name"
-                  name="name"
-                  required
-                />
-              </div>
-              <div class="col-12">
-                <label for="email" class="form-label">Email:</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="email"
-                  pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-                  name="email"
-                  required
-                />
-              </div>
-              <div class="col-12">
-                <label for="phone" class="form-label">Nr telefon:</label>
-                <input
-                  type="tel"
-                  class="form-control"
-                  id="phone"
-                  name="phone"
-                  required
-                />
-              </div>
-              <div class="col-12">
-                <label for="message" class="form-label">Mesaj:</label>
-                <textarea
-                  style="resize: none"
-                  class="form-control"
-                  id="message"
-                  name="message"
-                  rows="5"
-                  required
-                ></textarea>
-              </div>
-              <div class="col-12">
-                <button
-                  type="submit"
-                  class="btn btn-primary w-100"
-                  id="sendMessageButton"
-                >
-                  <span>Trimite mesaj</span>
-                </button>
-              </div>
-              <div id="alertMessage" class="mt-3"></div>
-            </form>
+      <div class="container py-5">
+        <div class="row justify-content-center">
+          <!-- Text + Image Column -->
+          <div class="col-lg-5 mb-4 mb-lg-0">
+            <h2 class="section-title, bg-white">Contactează-ne</h2>
+            <p>Hai să ne auzim prin mesaj sau la telefon!</p>
+
+            <p class="mb-2">
+              <i class="fa fa-map-marker-alt me-3"></i>Târgu Jiu, str. Griviței,
+              pe alee lângă Liceul de Arte
+            </p>
+            <p class="mb-2">
+              <i class="fa fa-phone-alt me-3"></i>+40 738055073
+            </p>
+            <p class="mb-2">
+              <i class="fa fa-envelope me-3"></i>mitinformaticcoding@gmail.com
+            </p>
+
+            <!-- 📍 Image inserted below text -->
+            <div class="mt-4">
+              <img
+                src="img/cat-2.jpg"
+                alt="Harta locației"
+                class="img-fluid rounded shadow-sm"
+              />
+            </div>
+          </div>
+
+          <!-- Form Column -->
+          <div class="col-lg-6">
+            <div class="card shadow p-4">
+              <h4 class="text-center mb-4">
+                Ne poți scrie și direct prin formular
+              </h4>
+              <form id="contactForm" novalidate="novalidate" class="row g-3">
+                <div class="col-12">
+                  <label for="name" class="form-label">Nume:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    name="name"
+                    required
+                  />
+                </div>
+                <div class="col-12">
+                  <label for="email" class="form-label">Email:</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                    name="email"
+                    required
+                  />
+                </div>
+                <div class="col-12">
+                  <label for="phone" class="form-label">Nr telefon:</label>
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="phone"
+                    name="phone"
+                    required
+                  />
+                </div>
+                <div class="col-12">
+                  <label for="message" class="form-label">Mesaj:</label>
+                  <textarea
+                    style="resize: none"
+                    class="form-control"
+                    id="message"
+                    name="message"
+                    rows="5"
+                    required
+                  ></textarea>
+                </div>
+                <div class="col-12">
+                  <button
+                    type="submit"
+                    class="btn btn-primary w-100"
+                    id="sendMessageButton"
+                  >
+                    <span>Trimite mesaj</span>
+                  </button>
+                </div>
+                <div id="alertMessage" class="mt-3"></div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
     <!-- Form Content End -->
 
     <!-- Footer Start -->
@@ -175,29 +187,37 @@
       <div class="container py-2">
         <div class="row g-5">
           <div class="col-lg-3 col-md-6">
-            <a class="btn btn-link" href="about.html">Despre Noi</a>
             <a class="btn btn-link" href="contact.html">Contact</a>
+            <a class="btn btn-link" href="faq.html">Întrebări frecvente</a>
             <a class="btn btn-link" href="termeni.html">Termeni si Conditii</a>
           </div>
           <div class="col-lg-3 col-md-6">
             <a class="btn btn-link" href="politica.html"
               >Politica de confidențialitate</a
             >
-            <a class="btn btn-link" href="faq.html">Întrebări frecvente</a>
+
             <a class="btn btn-link" href="index.html#demo">
               Lecție demonstrativă</a
             >
+            <p class="mb-2">
+              <i class="fa fa-envelope me-3"></i>mitinformaticcoding@gmail.com
+            </p>
           </div>
           <div class="col-lg-4 col-md-6">
-            <p class="mb-2">
-              <i class="fa fa-map-marker-alt me-3"></i>Strada Alexandru Vlahuta
-              nr 1
-            </p>
             <p class="mb-2">
               <i class="fa fa-phone-alt me-3"></i>+40 738055073
             </p>
             <p class="mb-2">
-              <i class="fa fa-envelope me-3"></i>mitinformaticcoding@gmail.com
+              <i class="fa fa-map-marker-alt me-3"></i>Târgu Jiu, str. Griviței
+            </p>
+            <p class="mb-2">
+              <i class="fa fa-map me-2"></i>
+              <a
+                href="https://maps.app.goo.gl/GX9niRevwPjcZSMu7"
+                target="_blank"
+              >
+                pe alee lângă Liceul de Arte
+              </a>
             </p>
           </div>
           <div class="col-lg-2 col-md-4">
