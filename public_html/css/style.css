@@ -21,12 +21,6 @@
   }
 }
 
-@media (max-width: 768px) {
-  .video-container {
-    height: 100vh; /* Adjust if needed */
-  }
-}
-
 /* ---------cool animation for small new text -------*/
 @keyframes growShrinkRotate {
   0% {
@@ -152,12 +146,6 @@
 }
 
 /* 📱 On small screens, center the badge */
-@media screen and (max-width: 768px) {
-  .badge-glass {
-    left: 40%;
-    transform: translateX(-40%); /* Center it */
-  }
-}
 
 @keyframes popInOut {
   0% {
@@ -334,21 +322,6 @@
   font-weight: 800;
 }
 
-@media (min-width: 768px) {
-  .responsive-heading {
-    font-size: 3rem;
-    font-weight: 800;
-    line-height: 1.2;
-  }
-}
-
-/* Font size for small screens */
-@media (max-width: 600px) {
-  .btn-fs {
-    font-size: 1.125rem; /* fs-6 equivalent */
-  }
-}
-
 /* stars design */
 .rating-css {
   padding: 10px;
@@ -521,7 +494,7 @@ textarea {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: transparent !important;
+  /* background-color: transparent !important; */
   z-index: 1000;
 }
 
@@ -570,7 +543,16 @@ textarea {
 
   .navbar-collapse.show {
     background-color: rgba(0, 0, 0, 0.9); /* Dark semi-transparent background */
-    transition: background-color 0.2s ease;
+  }
+
+  .collapse:not(.show) {
+    display: none !important;
+    height: auto !important;
+    transition: none !important;
+  }
+  .collapsing {
+    transition: none !important;
+    height: auto !important;
   }
 }
 
@@ -612,8 +594,12 @@ textarea {
     visibility: hidden;
     transition: 0.5s;
   }
+  .testimonial-carousel::before,
+  .testimonial-carousel::after {
+    width: 300px;
+  }
 
-  .navbar .dropdown-menu .fade-down {
+  .navbar .dropdown-menu.fade-down {
     top: 100%;
     transform: rotateX(-75deg);
     transform-origin: 0% 0%;
@@ -623,10 +609,11 @@ textarea {
     top: 100%;
     transform: rotateX(0deg);
     visibility: visible;
-    transition: 0s;
+    transition: 0.5s;
     opacity: 1;
   }
 }
+
 @media (max-width: 991.98px) {
   .navbar-nav .nav-link {
     animation: none !important;
@@ -759,6 +746,16 @@ textarea {
     position: relative;
     min-height: 400px;
   }
+  .btn-fs {
+    font-size: 1.125rem; /* fs-6 equivalent */
+  }
+  .badge-glass {
+    left: 40%;
+    transform: translateX(-40%); /* Center it */
+  }
+  .video-container {
+    height: 100vh; /* Adjust if needed */
+  }
 
   .header-carousel .owl-nav {
     position: relative; /* Change from absolute */
@@ -857,12 +854,10 @@ textarea {
   .testimonial-carousel::after {
     width: 200px;
   }
-}
-
-@media (min-width: 992px) {
-  .testimonial-carousel::before,
-  .testimonial-carousel::after {
-    width: 300px;
+  .responsive-heading {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.2;
   }
 }
 

@@ -2,11 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>www.informaticmit.com</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="" name="keywords" />
-    <meta content="" name="description" />
+    <title>Cursuri de Programare în Târgu Jiu | Informatic MIT</title>
 
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta
+      name="keywords"
+      content="cursuri programare, Târgu Jiu, curs HTML, curs JavaScript, cursuri pentru începători, informatic mit, școală informatică, creare site web, imprimare 3D, design 3D, personaje 3D, obiecte 3D, modelare 3D"
+    />
+
+    <meta
+      name="description"
+      content="Cursuri de programare în Târgu Jiu pentru copii și adulți. HTML, CSS, JavaScript și web development cu Informatic M IT."
+    />
+
+    <link rel="canonical" href="https://informaticmit.com/" />
+    <meta
+      name="google-site-verification"
+      content="Pur2CI-eCN_oU60MbFB3FE1rdcQfXoVBOfUJS4Uu9Y4"
+    />
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="img/logo.jpg" />
 
@@ -37,7 +50,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Template Stylesheet -->
-    <link rel="stylesheet" href="./css/style.css?v=1.2" />
+    <link rel="stylesheet" href="./css/style.css?v=1.3" />
   </head>
 
   <body>
@@ -59,16 +72,27 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
-          <a href="index.html" class="nav-item nav-link">Acasa</a>
+          <a href="index.html" class="nav-item nav-link">Acasă</a>
 
-          <a href="courses.html" class="nav-item nav-link position-relative">
-            Servicii & Produse
-            <span class="position-absolute start-0 text-danger animated-new">
-              Nou
-            </span>
-          </a>
+          <div class="nav-item dropdown">
+            <a
+              href="#"
+              class="nav-link dropdown-toggle position-relative"
+              data-bs-toggle="dropdown"
+            >
+              Servicii & Produse
+              <span class="position-absolute start-0 text-danger animated-new"
+                >Nou</span
+              >
+            </a>
+            <div class="dropdown-menu fade-down m-0">
+              <a href="courses.html" class="dropdown-item">Produse</a>
+              <a href="courses.html" class="dropdown-item">Cursuri</a>
+              <a href="courses.html" class="dropdown-item">Servicii</a>
+            </div>
+          </div>
 
-          <a href="team.html" class="nav-item nav-link">Echipa Noastra</a>
+          <a href="team.html" class="nav-item nav-link">Echipa Noastră</a>
 
           <a href="about.html" class="nav-item nav-link">Despre</a>
 
@@ -118,11 +142,9 @@
                 <div
                   class="glass-card p-4 d-flex flex-column align-items-center text-center mb-md-0"
                 >
-                  <h4 class="text-white">Design, modelare și printare 3D</h4>
-
-                  <h5 class="fs-6 my-2 text-white animate-pop">
+                  <h2 class="fs-6 my-2 text-white animate-pop">
                     Printăm și produse 3D personalizate!
-                  </h5>
+                  </h2>
 
                   <video
                     controls
@@ -142,7 +164,7 @@
                       href="./contact.html"
                       class="flex-fill d-flex align-items-center lh-sm justify-content-center text-center btn btn-light rounded-0"
                     >
-                      Vreau un produs personalizat
+                      Vreau să cumpăr un produs
                     </a>
                     <a
                       data-bs-toggle="modal"
@@ -197,10 +219,12 @@
     <div class="container-xxl py-4 mt-5 category">
       <div class="container">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-          <h6 class="section-title bg-white text-center text-primary px-3">
-            Galerie
-          </h6>
-          <h2 class="mb-4">Studenții noștri</h2>
+          <small
+            class="section-title bg-white text-center text-primary"
+          ></small>
+          <h2 class="mb-4 fs-3">
+            Studenți care au urmat cursurile de programare
+          </h2>
         </div>
         <div
           class="d-grid"
@@ -234,11 +258,11 @@
     <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
       <div class="container">
         <div class="text-center">
-          <h6
-            class="section-title bg-white text-center text-primary px-3"
+          <small
+            class="section-title bg-white text-center text-primary"
             id="recenzii"
-          ></h6>
-          <h2 class="mb-5">Ce spun studenții noștri!</h2>
+          ></small>
+          <h2 class="mb-5 fs-3">Ce spun studenții noștri!</h2>
         </div>
         <div
           class="owl-carousel testimonial-carousel header-carousel position-relative"
