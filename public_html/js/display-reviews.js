@@ -1,12 +1,4 @@
-import {
-  db,
-  dbRef,
-  get,
-  storageRef,
-  storage,
-  getDownloadURL,
-  listAll,
-} from "./mailer/firebase.connect.js";
+import { db, dbRef, get } from "./mailer/firebase.connect.js";
 
 // Function to fetch reviews
 async function fetchApprovedReviews() {
@@ -104,105 +96,6 @@ function createReviewElement(review) {
   return reviewElement.firstElementChild;
 }
 
-// ======================= VIDEO TESTIMONIAL FETCHING =======================
-
-// Function to fetch videos from Firebase Storage
-async function fetchVideoTestimonials() {
-  try {
-    const videoContainer = document.getElementById("video-carousel");
-    const videoSection = videoContainer.parentElement;
-    const videoFolderRef = storageRef(storage, "testimonial-videos");
-
-    // Get all video files from Firebase
-    const result = await listAll(videoFolderRef);
-
-    // Clear existing videos
-    videoContainer.innerHTML = "";
-
-    // If no videos are found, display "Coming Soon" message (only once)
-    if (result.items.length === 0) {
-      videoSection.innerHTML = `<div class="text-center"><h5>Testimoniale video in curand</h5></div>`;
-      return;
-    }
-
-    // Loop through videos and create video elements
-    for (const item of result.items) {
-      const url = await getDownloadURL(item);
-      const videoTitle = item.name.replace(".mp4", ""); // Remove file extension
-
-      const videoElement = document.createElement("div");
-      videoElement.classList.add("item");
-      videoElement.innerHTML = `
-        <div class="video-item">
-          <div class="video-title text-center">
-            <h5>${videoTitle}</h5>
-          </div>
-          <video class="w-100 rounded video-player" controls>
-            <source src="${url}" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      `;
-
-      videoContainer.appendChild(videoElement);
-    }
-
-    initializeVideoCarousel();
-
-    // Ensure only one video plays at a time
-    setupSingleVideoPlay();
-  } catch (error) {
-    console.error("Error fetching videos:", error);
-    // Show "Coming Soon" only once if an error occurs
-    const videoSection =
-      document.getElementById("video-carousel").parentElement;
-    videoSection.innerHTML = `<div class="text-center"><h5>Testimoniale video in curand</h5></div>`;
-  }
-}
-
-// Function to Initialize Owl Carousel AFTER videos are loaded
-function initializeVideoCarousel() {
-  const carousel = $(".video-carousel");
-
-  // Destroy existing Owl Carousel instance (if any)
-  carousel.trigger("destroy.owl.carousel");
-
-  $(".video-carousel").owlCarousel({
-    autoplay: true,
-    loop: true,
-    margin: 10,
-    dots: true,
-    nav: false,
-    items: 3,
-    autoplayTimeout: 10000, // 10 seconds
-    autoplayHoverPause: true,
-    responsive: {
-      0: { items: 1 },
-      768: { items: 2 },
-      1200: { items: 3 },
-    },
-  });
-}
-
-// Function to Make Sure Only One Video Plays at a Time
-function setupSingleVideoPlay() {
-  const videos = document.querySelectorAll(".video-player");
-
-  videos.forEach((video) => {
-    video.addEventListener("play", function () {
-      // Pause all other videos except the one being played
-      videos.forEach((otherVideo) => {
-        if (otherVideo !== video) {
-          otherVideo.pause();
-          otherVideo.currentTime = 0; // Optional: Reset video progress
-        }
-      });
-    });
-  });
-}
-
 // ======================= EVENT LISTENERS =======================
-// Fetch and display video testimonials on page load
-document.addEventListener("DOMContentLoaded", fetchVideoTestimonials);
 // Fetch and display testimonials on page load
 document.addEventListener("DOMContentLoaded", fetchApprovedReviews);
