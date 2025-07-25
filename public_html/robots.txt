@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /404-error.html
+Disallow: /politica.html
+Disallow: /video.html
+Disallow: /termeni.html
+
+# Allow everything else
+Allow: /
+
+# Optional: link to your sitemap to help crawling
+Sitemap: https://www.yoursite.com/sitemap.xml
