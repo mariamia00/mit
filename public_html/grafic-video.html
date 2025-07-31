@@ -18,10 +18,9 @@
       name="google-site-verification"
       content="Pur2CI-eCN_oU60MbFB3FE1rdcQfXoVBOfUJS4Uu9Y4"
     />
-
     <link rel="icon" type="image/x-icon" href="img/logo.jpg" />
 
-    <!-- Fonts -->
+    <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -29,8 +28,26 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/style.css?v=1.4" />
+    <!-- Icon Font Stylesheet -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet" />
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link rel="stylesheet" href="./css/style.css?v=1.4" />
 
     <!-- Structured Data for SEO -->
     <script type="application/ld+json">
@@ -42,20 +59,111 @@
         "thumbnailUrl": "https://informaticmit.com/img/thumbnail.webp",
         "uploadDate": "2025-07-26",
         "contentUrl": "https://informaticmit.com/img/grafic-video.mp4",
-        "embedUrl": "https://informaticmit.com/grafic-video.html"
+        "embedUrl": "https://informaticmit.com/grafic-video.html",
+        "width": 780,
+        "height": 439
       }
     </script>
   </head>
 
-  <body>
-    <h1>Grafic video Informatic M IT</h1>
-    <video controls width="100%" poster="img/thumbnail.webp">
-      <source src="img/grafic-video.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-    <p>
-      Descoperă cum folosim imprimarea 3D și programarea pentru copii și
-      adolescenți.
-    </p>
+  <body class="bg-light">
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-trasparent navbar-dark p-0">
+      <a
+        href="index.html"
+        class="navbar-brand d-flex align-items-center px-4 px-lg-5"
+      >
+        <h2 class="m-0 text-primary">Informatic M IT</h2>
+      </a>
+      <button
+        type="button"
+        class="navbar-toggler me-4"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarCollapse"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto p-4 p-lg-0">
+          <a href="index.html" class="nav-item nav-link">Acasă</a>
+
+          <div class="nav-item dropdown">
+            <a
+              href="#"
+              class="nav-link dropdown-toggle position-relative"
+              data-bs-toggle="dropdown"
+            >
+              Servicii & Produse
+              <span class="position-absolute start-0 text-danger animated-new"
+                >Nou</span
+              >
+            </a>
+            <div class="dropdown-menu fade-down m-0">
+              <a href="courses.html" class="dropdown-item">Produse</a>
+              <a href="courses.html" class="dropdown-item">Cursuri</a>
+              <a href="courses.html" class="dropdown-item">Servicii</a>
+            </div>
+          </div>
+
+          <a href="team.html" class="nav-item nav-link">Echipa Noastră</a>
+
+          <a href="about.html" class="nav-item nav-link">Despre</a>
+
+          <a href="contact.html" class="nav-item nav-link">Contact</a>
+        </div>
+      </div>
+    </nav>
+    <!-- Header Start -->
+    <div class="container-fluid bg-primary py-3 page-header">
+      <div class="container py-4">
+        <div class="row justify-content-center"></div>
+      </div>
+    </div>
+    <!-- Header End -->
+    <div class="container py-5">
+      <div class="text-center mb-4">
+        <h1 class="mb-3 fs-4">Modelare și imprimare 3D la Informatic M IT</h1>
+        <p class="mb-4 fs-5">
+          Descoperă cum folosim imprimarea 3D și programarea pentru copii și
+          adolescenți.
+        </p>
+      </div>
+
+      <div class="d-flex justify-content-center mb-3">
+        <div style="max-width: 780px; width: 100%">
+          <div class="ratio ratio-16x9">
+            <video
+              controls
+              poster="img/thumbnail.webp"
+              preload="none"
+              loading="lazy"
+            >
+              <source src="img/grafic-video.mp4" type="video/mp4" />
+              Browserul tău nu suportă tag-ul video.
+            </video>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="text-center d-flex flex-column flex-md-row justify-content-center gap-3"
+      >
+        <a
+          href="./contact.html"
+          class="btn btn-primary btn-lg rounded-0 px-4 py-2"
+        >
+          Vreau un produs 3D personalizat
+        </a>
+        <a
+          href="./courses.html"
+          class="btn btn-primary btn-lg rounded-0 px-4 py-2"
+        >
+          Vreau să fac un curs
+        </a>
+      </div>
+    </div>
+
+    <!-- Optionally include Bootstrap JS (if you want animations/modal etc) -->
+    <script src="js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
