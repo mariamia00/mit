@@ -2,17 +2,17 @@
 <html lang="ro">
   <head>
     <meta charset="utf-8" />
-    <title>Cursuri de Programare în Târgu Jiu | Informatic M IT</title>
+    <title>Cursuri de Programare | Informatic M IT</title>
 
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta
       name="keywords"
-      content="cursuri programare, Târgu Jiu, curs HTML, curs JavaScript, cursuri pentru începători, informatic mit, școală informatică, creare site web, imprimare 3D, design 3D, personaje 3D, obiecte 3D, modelare 3D"
+      content="cursuri programare, curs HTML, curs JavaScript, cursuri pentru începători, informatic m it, școală informatică, creare site web, imprimare 3D, design 3D, personaje 3D, obiecte 3D, modelare 3D"
     />
 
     <meta
       name="description"
-      content="Cursuri de programare în Târgu Jiu pentru copii și adulți. HTML, CSS, JavaScript și web development cu Informatic M IT."
+      content="Cursuri de programare fizic sau online pentru copii și adulți. Te invatam cum sa creezi o pagina web de la zero. HTML, CSS, JavaScript și C++ cu Informatic M IT."
     />
 
     <link rel="canonical" href="https://informaticmit.com/" />
@@ -51,6 +51,18 @@
 
     <!-- Template Stylesheet -->
     <link rel="stylesheet" href="./css/style.css?v=1.4" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "name": "Grafic video Informatic M IT",
+        "description": "Descoperă cum folosim imprimarea 3D și programarea pentru copii și adolescenți.",
+        "thumbnailUrl": "https://informaticmit.com/img/thumbnail.webp",
+        "uploadDate": "2025-07-26",
+        "contentUrl": "https://informaticmit.com/img/grafic-video.mp4"
+      }
+    </script>
   </head>
 
   <body>
@@ -120,7 +132,7 @@
     <div
       class="owl-carousel-item position-relative"
       style="
-        background-image: url('img/carousel-2.jpg');
+        background-image: url('img/carousel-2.webp');
         min-height: 100vh;
         background-position: center;
         background-repeat: no-repeat;
@@ -131,11 +143,34 @@
         class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
         style="background: rgba(24, 29, 56, 0.7)"
       >
-        <div class="container mt-5 p-md-4" id="demo">
+        <div class="container mt-4 p-md-4" id="demo">
           <div class="row align-items-center mt-5">
+            <!-- Left Column (Text & Buttons) -->
+            <div class="col-lg-6 mb-5">
+              <h1
+                class="responsive-heading animated slideInDown pb-0 pb-md-4 text-center text-md-start text-white"
+              >
+                Intră în lumea programării cu Informatic M IT
+              </h1>
+              <div
+                class="d-flex flex-column flex-sm-row gap-4 animated slideInLeft"
+              >
+                <a
+                  data-bs-toggle="modal"
+                  data-bs-target="#contactModal"
+                  id="demoButton"
+                  class="btn btn-primary px-3 py-3"
+                >
+                  Vreau o lecție demo!
+                </a>
+                <a href="courses.html#proiecte" class="btn btn-light px-3 py-3">
+                  Vreau un website!
+                </a>
+              </div>
+            </div>
             <!-- Right Column (Video with Glassmorphism Effect) -->
             <div
-              class="col-lg-6 d-flex justify-content-center animated slideInRight mb-md-0 order-0 order-md-1"
+              class="col-lg-6 d-flex justify-content-center animated slideInRight mb-md-0"
             >
               <div class="position-relative">
                 <div class="badge-glass fs-5 animated slideInLeft">Nou!</div>
@@ -149,10 +184,14 @@
                   <video
                     controls
                     class="w-100"
-                    poster="./img/thumbnail.png"
+                    poster="./img/thumbnail.webp"
                     muted
                   >
-                    <source src="./img/grafic-video.mp4" type="video/mp4" />
+                    <source
+                      src="./img/grafic-video.mp4"
+                      type="video/mp4"
+                      preload="none"
+                    />
                     Your browser does not support the video tag.
                   </video>
                   <!-- buttons -->
@@ -184,30 +223,6 @@
                 </div>
               </div>
             </div>
-
-            <!-- Left Column (Text & Buttons) -->
-            <div class="col-lg-6 mb-4 order-1 order-md-0">
-              <h1
-                class="responsive-heading animated slideInDown pb-0 pb-md-4 text-center text-md-start text-white"
-              >
-                Intră în lumea programării cu Informatic M IT
-              </h1>
-              <div
-                class="d-flex flex-column flex-sm-row gap-4 animated slideInLeft"
-              >
-                <a
-                  data-bs-toggle="modal"
-                  data-bs-target="#contactModal"
-                  id="demoButton"
-                  class="btn btn-primary px-3 py-3"
-                >
-                  Vreau o lecție demo!
-                </a>
-                <a href="courses.html#proiecte" class="btn btn-light px-3 py-3">
-                  Vreau un website!
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -216,57 +231,76 @@
     <!-- Carousel End -->
 
     <!-- Gallery Start -->
-    <div class="container-xxl py-4 mt-5 category">
+    <div class="container-xxl py-4 mt-2 category">
       <div class="container">
-        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+        <div class="text-center">
           <small
             class="section-title bg-white text-center text-primary"
           ></small>
-          <h2 class="mb-4 fs-3">
-            Studenți care au urmat cursurile de programare
+          <h2 class="mb-4 fs-4 mt-3">
+            Studenți care au urmat cursurile noastre
           </h2>
+          <p>
+            La cursurile noastre, studenții începători învață
+            <strong>programare și dezvoltare web</strong> fără să tocească,
+            folosind
+            <strong>HTML, CSS, JavaScript, Angular, SQL și C++.</strong>
+            <br />Avem și un
+            <strong>curs de modelare și imprimare 3D</strong> unde studenții
+            învață cum să creeze un model 3D și să sezete imprimanta ca să îl
+            creeze.
+          </p>
         </div>
-        <div
-          class="d-grid"
-          style="grid-template-columns: repeat(4, 1fr); gap: 10px"
-        >
-          <img
-            src="img/img1.jpg"
-            class="img-fluid w-100"
-            style="aspect-ratio: 1 / 1; object-fit: cover"
-            alt="cursuri programare pentru studenti"
-          />
-          <img
-            src="img/img2.jpg"
-            class="img-fluid w-100"
-            style="aspect-ratio: 1 / 1; object-fit: cover"
-            alt="cursuri programare pentru studenti"
-          />
-          <img
-            src="img/img3.jpg"
-            class="img-fluid w-100"
-            style="aspect-ratio: 1 / 1; object-fit: cover"
-            alt="cursuri programare pentru studenti"
-          />
-          <img
-            src="img/img4.jpg"
-            class="img-fluid w-100"
-            style="aspect-ratio: 1 / 1; object-fit: cover"
-            alt="cursuri programare pentru studenti"
-          />
+        <div class="row g-2">
+          <div class="col-6 col-md-3">
+            <img
+              src="img/img1.jpg"
+              class="img-fluid w-100"
+              style="aspect-ratio: 1 / 1; object-fit: cover"
+              loading="lazy"
+              alt="cursuri programare pentru studenti"
+            />
+          </div>
+          <div class="col-6 col-md-3">
+            <img
+              src="img/img3.jpg"
+              class="img-fluid w-100"
+              style="aspect-ratio: 1 / 1; object-fit: cover"
+              loading="lazy"
+              alt="cursuri programare pentru studenti"
+            />
+          </div>
+          <div class="col-6 col-md-3">
+            <img
+              src="img/img2.jpg"
+              class="img-fluid w-100"
+              style="aspect-ratio: 1 / 1; object-fit: cover"
+              loading="lazy"
+              alt="cursuri programare pentru studenti"
+            />
+          </div>
+          <div class="col-6 col-md-3">
+            <img
+              src="img/img4.jpg"
+              class="img-fluid w-100"
+              style="aspect-ratio: 1 / 1; object-fit: cover"
+              loading="lazy"
+              alt="cursuri programare pentru studenti"
+            />
+          </div>
         </div>
       </div>
     </div>
 
     <!-- Testimonial Start -->
-    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container-xxl py-4">
       <div class="container">
         <div class="text-center">
           <small
             class="section-title bg-white text-center text-primary"
             id="recenzii"
           ></small>
-          <h2 class="mb-5 fs-3">Ce spun studenții noștri!</h2>
+          <h2 class="mb-5 fs-3 mt-3">Ce spun studenții noștri!</h2>
         </div>
         <div
           class="owl-carousel testimonial-carousel header-carousel position-relative"
@@ -278,7 +312,7 @@
       <!-- Leave a Review Button -->
       <div class="text-center mt-5">
         <button
-          class="btn btn-primary py-md-3 px-md-5 fs-6 animated slideInRight"
+          class="btn btn-primary py-md-3 px-md-5 fs-6"
           data-bs-toggle="modal"
           data-bs-target="#ratingModal"
         >
@@ -357,10 +391,7 @@
     </div>
 
     <!-- Footer Start -->
-    <div
-      class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn"
-      data-wow-delay="0.1s"
-    >
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5">
       <div class="container py-2">
         <div class="row g-5">
           <div class="col-lg-3 col-md-6">

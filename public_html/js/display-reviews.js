@@ -70,26 +70,28 @@ function createReviewElement(review) {
   );
 
   const reviewHTML = `
-    <div class="testimonial-item text-center">
-      <img
-        class="border rounded-circle p-2 mx-auto mb-3"
-        src="${review.imageUrl}"
-        style="width: 80px; height: 80px"
-      />
-      <h5 class="mb-0">${review.name}</h5>
-      <div class="mb-2">
-        ${filledStars}
-        ${emptyStars}
-      </div>
-      <div
-        class="testimonial-text bg-light text-center p-4 d-flex align-items-center"
-        >
-        <p class="mb-0 w-100">
-          ${review.comment}
-        </p>
-      </div>
+  <div class="testimonial-item text-center">
+    <img
+      class="border rounded-circle p-2 mx-auto mb-3"
+      src="${review.imageUrl}"
+      loading="lazy"
+      style="width: 80px; height: 80px"
+      alt="${review.name}"
+    />
+    <h5 class="mb-0">${review.name}</h5>
+    <div class="mb-2">
+      ${filledStars}
+      ${emptyStars}
     </div>
-  `;
+    <div
+      class="testimonial-text bg-light text-center p-4 d-flex align-items-center"
+    >
+      <p class="mb-0 w-100">
+        ${review.comment}
+      </p>
+    </div>
+  </div>
+`;
 
   const reviewElement = document.createElement("div");
   reviewElement.innerHTML = reviewHTML.trim();
